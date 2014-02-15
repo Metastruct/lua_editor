@@ -170,12 +170,22 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/worker-css.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/worker-javascript.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/worker-json.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/worker-lua.js"></script>
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/worker-lua.js"></script> -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/worker-php.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/worker-xquery.js"></script>
 <script>
     var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/monokai");
+	ace.require("ace/ext/language_tools");
+	ace.require('ace/ext/settings_menu').init(editor);
+	ace.require('ace/ext/keybinding_menu').init(editor);
+	editor.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+		//enableEmmet: true,
+		scrollPastEnd: true,
+    });
+	
+	editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/lua");
 
 	// callbacks
