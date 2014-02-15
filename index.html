@@ -177,59 +177,72 @@
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode("ace/mode/lua");
-</script>
 
-<script>
-// callbacks
+	// callbacks
 
-// lua->js
-function SetTheme(themename) {
-	OnLog("SetTheme "+themename);
-}
-function SetMode(editormode) {
-	OnLog("SetMode "+editormode);
-}
-function GotoLine(linenum) {
-	OnLog("GotoLine "+linenum);
-}
-function SetContent(code) {
-	OnLog("SetContent "+code);
-}
-function SetErr(errline,errstr) {
-	OnLog("SetErr "+errstr);
-}
-function ClearErr() {
-	OnLog("ClearErr");
-}
-function ShowMenu() {
-	OnLog("ShowMenu");
-}
-function ShowBinds() {
-	OnLog("ShowBinds");
-}
+	// lua->js
+	function SetTheme(themename) {
+		OnLog("SetTheme "+themename);
+		editor.setTheme("ace/theme/"+themename);
+	}
+	function SetMode(editormode) {
+		OnLog("SetMode "+editormode);
+		editor.getSession().setMode("ace/mode/"+editormode);
+	}
+	function GotoLine(linenum) {
+		OnLog("GotoLine "+linenum);
+		editor.gotoLine(linenum);
+	}
+	function SetContent(code) {
+		OnLog("SetContent "+code);
+		editor.getSession().setValue(ncode);
+	}
+	function SetErr(errline,errstr) {
+		OnLog("SetErr "+errstr);
+	}
+	function ClearErr() {
+		OnLog("ClearErr");
+	}
+	function ShowMenu() {
+		OnLog("ShowMenu");
+	}
+	function ShowBinds() {
+		OnLog("ShowBinds");
+	}
 
-// js->lua
-function OnReady() {
-	try {
-		gmodinterface.OnReady();
-	} catch (err) {
-		console.log("ERR OnReady: "+err);
+	// js->lua
+	function OnReady() {
+		try {
+			gmodinterface.OnReady();
+			editor.focus();
+		} catch (err) {
+			console.log("ERR OnReady: "+err);
+		}
 	}
-}
-function OnCode(code) {
-	try {
-		gmodinterface.OnCode(code);
-	} catch (err) {
-		console.log("ERR OnCode: "+err);
+	function OnCode(code) {
+		try {
+			gmodinterface.OnCode(code);
+		} catch (err) {
+			console.log("ERR OnCode: "+err);
+		}
 	}
-}
-function OnLog(logstr) {
-	try {
-		gmodinterface.OnLog(logstr);
-	} catch (err) {
-		console.log("ERR OnLog: "+err);
+	function OnLog(logstr) {
+		try {
+			gmodinterface.OnLog(logstr);
+		} catch (err) {
+			console.log("ERR OnLog: "+err);
+		}
 	}
-}
+
+	editor.getSession().on('change', function(){
+	   
+		var text = editor.getSession().getValue();
+		OnCode(code);
+		
+	});
+	
+	document.addEventListener('DOMContentLoaded',OnReady);
+	
 </script>
 
 </body>
