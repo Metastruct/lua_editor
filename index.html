@@ -195,19 +195,23 @@
 	}
 	function SetContent(code) {
 		OnLog("SetContent "+code);
-		editor.getSession().setValue(code);
+		editor.getSession().getDocument().setValue(code);
 	}
 	function SetErr(errline,errstr) {
 		OnLog("SetErr "+errstr);
+		session.setAnnotations([{row: errline - 1, text: errstr, type: "error"}]);
 	}
 	function ClearErr() {
 		OnLog("ClearErr");
+		editor.clearAnnotations();
 	}
 	function ShowMenu() {
 		OnLog("ShowMenu");
+		editor.showSettingsMenu();
 	}
 	function ShowBinds() {
 		OnLog("ShowBinds");
+		editor.showKeyboardShortcuts();
 	}
 
 	// js->lua
