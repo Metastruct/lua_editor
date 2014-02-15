@@ -1,1 +1,236 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style type="text/css" media="screen">
+    html {
+		margin: 0;
+		padding: 0;
+		background-color: #000;
+	}
+    body {
+		margin: 0;
+		padding: 0;
+	}
+	#editor { 
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+</style>
+</head>
+<body>
+
+<div id="editor"></div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ace.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ext-elastic_tabstops_lite.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ext-emmet.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ext-keybinding_menu.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ext-modelist.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ext-options.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ext-searchbox.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ext-settings_menu.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ext-spellcheck.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ext-static_highlight.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ext-statusbar.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ext-textarea.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ext-themelist.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ext-whitespace.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/keybinding-emacs.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/keybinding-vim.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-abap.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-actionscript.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-ada.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-asciidoc.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-assembly_x86.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-autohotkey.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-batchfile.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-c9search.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-c_cpp.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-clojure.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-cobol.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-coffee.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-coldfusion.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-csharp.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-css.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-curly.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-d.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-dart.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-diff.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-django.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-dot.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-ejs.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-erlang.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-forth.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-ftl.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-glsl.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-golang.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-groovy.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-haml.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-haskell.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-haxe.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-html.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-html_ruby.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-ini.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-jade.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-java.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-javascript.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-json.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-jsoniq.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-jsp.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-jsx.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-julia.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-latex.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-less.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-liquid.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-lisp.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-livescript.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-logiql.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-lsl.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-lua.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-luapage.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-lucene.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-makefile.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-markdown.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-matlab.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-mushcode.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-mushcode_high_rules.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-mysql.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-objectivec.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-ocaml.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-pascal.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-perl.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-pgsql.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-php.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-powershell.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-prolog.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-properties.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-python.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-r.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-rdoc.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-rhtml.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-ruby.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-rust.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-sass.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-scad.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-scala.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-scheme.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-scss.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-sh.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-snippets.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-sql.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-stylus.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-svg.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-tcl.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-tex.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-text.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-textile.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-tmsnippet.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-toml.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-twig.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-typescript.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-vbscript.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-velocity.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-verilog.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-xml.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-xquery.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-yaml.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-ambiance.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-chaos.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-chrome.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-clouds.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-clouds_midnight.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-cobalt.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-crimson_editor.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-dawn.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-dreamweaver.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-eclipse.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-github.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-idle_fingers.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-kr.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-merbivore.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-merbivore_soft.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-mono_industrial.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-monokai.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-pastel_on_dark.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-solarized_dark.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-solarized_light.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-terminal.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-textmate.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-tomorrow.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-tomorrow_night.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-tomorrow_night_blue.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-tomorrow_night_bright.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-tomorrow_night_eighties.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-twilight.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-vibrant_ink.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-xcode.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/worker-coffee.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/worker-css.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/worker-javascript.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/worker-json.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/worker-lua.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/worker-php.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/worker-xquery.js"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/lua");
+</script>
+
+<script>
+// callbacks
+
+// lua->js
+function SetTheme(themename) {
+	OnLog("SetTheme "+themename);
+}
+function SetMode(editormode) {
+	OnLog("SetMode "+editormode);
+}
+function GotoLine(linenum) {
+	OnLog("GotoLine "+linenum);
+}
+function SetContent(code) {
+	OnLog("SetContent "+code);
+}
+function SetErr(errline,errstr) {
+	OnLog("SetErr "+errstr);
+}
+function ClearErr() {
+	OnLog("ClearErr");
+}
+function ShowMenu() {
+	OnLog("ShowMenu");
+}
+function ShowBinds() {
+	OnLog("ShowBinds");
+}
+
+// js->lua
+function OnReady() {
+	try {
+		gmodinterface.OnReady();
+	} catch (err) {
+		console.log("ERR OnReady: "+err);
+	}
+}
+function OnCode(code) {
+	try {
+		gmodinterface.OnCode(code);
+	} catch (err) {
+		console.log("ERR OnCode: "+err);
+	}
+}
+function OnLog(logstr) {
+	try {
+		gmodinterface.OnLog(logstr);
+	} catch (err) {
+		console.log("ERR OnLog: "+err);
+	}
+}
+</script>
+
+</body>
+</html>
