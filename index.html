@@ -195,7 +195,7 @@
 	}
 	function SetContent(code) {
 		OnLog("SetContent "+code);
-		editor.getSession().setValue(ncode);
+		editor.getSession().setValue(code);
 	}
 	function SetErr(errline,errstr) {
 		OnLog("SetErr "+errstr);
@@ -237,7 +237,7 @@
 	editor.getSession().on('change', function(){
 	   
 		var text = editor.getSession().getValue();
-		OnCode(code);
+		OnCode(text);
 		
 	});
 	
