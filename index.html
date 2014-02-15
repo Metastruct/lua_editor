@@ -199,7 +199,7 @@
 	}
 	function SetErr(errline,errstr) {
 		OnLog("SetErr "+errstr);
-		session.setAnnotations([{row: errline - 1, text: errstr, type: "error"}]);
+		editor.getSession().setAnnotations([{row: errline - 1, text: errstr, type: "error"}]);
 	}
 	function ClearErr() {
 		OnLog("ClearErr");
