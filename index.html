@@ -192,35 +192,35 @@
 
 	// lua->js
 	function SetTheme(themename) {
-		OnLog("SetTheme "+themename);
+		//OnLog("SetTheme "+themename);
 		editor.setTheme("ace/theme/"+themename);
 	}
 	function SetMode(editormode) {
-		OnLog("SetMode "+editormode);
+		//OnLog("SetMode "+editormode);
 		editor.getSession().setMode("ace/mode/"+editormode);
 	}
 	function GotoLine(linenum) {
-		OnLog("GotoLine "+linenum);
+		//OnLog("GotoLine "+linenum);
 		editor.gotoLine(linenum);
 	}
 	function SetContent(code) {
-		OnLog("SetContent "+code);
+		//OnLog("SetContent "+code);
 		editor.getSession().getDocument().setValue(code);
 	}
 	function SetErr(errline,errstr) {
-		OnLog("SetErr "+errstr);
+		//OnLog("SetErr "+errstr);
 		editor.getSession().setAnnotations([{row: errline - 1, text: errstr, type: "error"}]);
 	}
 	function ClearErr() {
-		OnLog("ClearErr");
+		//OnLog("ClearErr");
 		editor.getSession().clearAnnotations();
 	}
 	function ShowMenu() {
-		OnLog("ShowMenu");
+		//OnLog("ShowMenu");
 		editor.showSettingsMenu();
 	}
 	function ShowBinds() {
-		OnLog("ShowBinds");
+		//OnLog("ShowBinds");
 		editor.showKeyboardShortcuts();
 	}
 
