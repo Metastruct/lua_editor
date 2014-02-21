@@ -52,12 +52,10 @@
 	ace.require("ace/ext/language_tools");
 	ace.require('ace/ext/settings_menu').init(editor);
 	ace.require('ace/ext/keybinding_menu').init(editor);
-
 	editor.setOptions({
-        enableBasicAutocompletion: true,
-        enableSnippets: true,
-		scrollPastEnd: true
-    });
+		enableBasicAutocompletion: true,
+		enableSnippets: true
+	});
 	
 	editor.getSession().setUseWrapMode(false);
 	editor.getSession().setUseSoftTabs(false);
@@ -111,15 +109,21 @@
 	// js->lua
 	function OnReady() {
 		try {
-			gmodinterface.OnReady();
-			editor.focus();
+			if ("gmodinterface" in window) {
+				gmodinterface.OnReady();
+				editor.focus();
+			} else {
+				console.log("GMod Interface Not Found!?");
+			}
 		} catch (err) {
 			console.log("ERR OnReady: "+err);
 		}
 	}
 	function OnCode(code) {
 		try {
-			gmodinterface.OnCode(code);
+			if ("gmodinterface" in window) {
+				gmodinterface.OnCode(code);
+			}
 		} catch (err) {
 			console.log("ERR OnCode: "+err);
 		}
@@ -128,7 +132,7 @@
 		try {
 			gmodinterface.OnLog(logstr);
 		} catch (err) {
-			console.log("ERR OnLog: "+err);
+			console.log("FALLBACK LOG: "+err);
 		}
 	}
 
