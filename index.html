@@ -26,6 +26,7 @@
 <script src="ace/ace.js"></script>
 <script src="ace/ext-elastic_tabstops_lite.js"></script>
 <script src="ace/ext-emmet.js"></script>
+<script src="ace/ext-language_tools.js"></script>
 <script src="ace/ext-keybinding_menu.js"></script>
 <script src="ace/ext-modelist.js"></script>
 <script src="ace/ext-options.js"></script>
@@ -54,7 +55,8 @@
 	ace.require('ace/ext/keybinding_menu').init(editor);
 	editor.setOptions({
 		enableBasicAutocompletion: true,
-		enableSnippets: true
+		enableSnippets: true,
+		scrollPastEnd: true
 	});
 	
 	editor.getSession().setUseWrapMode(false);
