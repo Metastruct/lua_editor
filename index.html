@@ -58,6 +58,22 @@
 		enableSnippets: true,
 		scrollPastEnd: true
 	});
+	var s_id=0;
+	function DisableShortcut(scut) { 
+		s_id++;
+		editor.commands.addCommands([{
+			name: "dis"+sid,
+			bindKey: {
+				win: scut,
+				mac: scut
+			},
+			exec: function(editor, line) {
+				return false;
+			},
+			readOnly: true
+		}]);
+	};
+	DisableShortcut("Ctrl-Alt+0");
 	
 	editor.getSession().setUseWrapMode(false);
 	editor.getSession().setUseSoftTabs(false);
@@ -111,16 +127,26 @@
 	// js->lua
 	function OnReady() {
 		try {
+			editor.focus();
+			
+			editor.getSession().on('change', function(){
+				var text = editor.getSession().getValue();
+				OnCode(text);
+			});
+				
+			
 			if ("gmodinterface" in window) {
 				gmodinterface.OnReady();
-				editor.focus();
 			} else {
 				console.log("GMod Interface Not Found!?");
 			}
+			
 		} catch (err) {
 			console.log("ERR OnReady: "+err);
 		}
+		
 	}
+	
 	function OnCode(code) {
 		try {
 			if ("gmodinterface" in window) {
@@ -130,6 +156,7 @@
 			console.log("ERR OnCode: "+err);
 		}
 	}
+	
 	function OnLog(logstr) {
 		try {
 			gmodinterface.OnLog(logstr);
@@ -138,16 +165,8 @@
 		}
 	}
 
-	editor.getSession().on('change', function(){
-	   
-		var text = editor.getSession().getValue();
-		OnCode(text);
-		
-	});
-	
 	document.addEventListener('DOMContentLoaded',OnReady);
 	
 </script>
-
 </body>
 </html>
