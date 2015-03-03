@@ -66,7 +66,19 @@ var GLuaHighlightRules = function() {
     var floatNumber = "(?:" + pointFloat + ")";
 
     this.$rules = {
-        "start" : [{
+        "start" : [
+		{
+			token : "comment", // multi line comment
+			regex : "\\/\\*",
+			next : "comment"
+		},
+		{
+			token : "comment",
+			regex : "//",
+			next : "singleLineComment"
+		},
+		
+		{
             stateName: "bracketedComment",
             onMatch : function(value, currentState, stack){
                 stack.unshift(this.next, value.length - 2, currentState);
@@ -141,7 +153,7 @@ var GLuaHighlightRules = function() {
             regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
         }, {
             token : "keyword.operator",
-            regex : "\\+|\\-|\\*|\\/|%|\\#|\\^|~|<|>|<=|=>|==|~=|=|\\:|\\.\\.\\.|\\.\\."
+            regex : "\\+|\\-|\\*|\\/|%|\\#|\\^|~|!=|!|\\|\\||&&|<|>|<=|=>|==|~=|=|\\:|\\.\\.\\.|\\.\\."
         }, {
             token : "paren.lparen",
             regex : "[\\[\\(\\{]"
@@ -151,7 +163,32 @@ var GLuaHighlightRules = function() {
         }, {
             token : "text",
             regex : "\\s+|\\w+"
-        } ]
+        } ],
+		        
+        "singleLineComment" : [
+            {
+                token : "comment",
+                regex : /\\$/,
+                next : "singleLineComment"
+            }, {
+                token : "comment",
+                regex : /$/,
+                next : "start"
+            }, {
+                defaultToken: "comment"
+            }
+        ],
+        "comment" : [
+            {
+                token : "comment", // closing comment
+                regex : ".*?\\*\\/",
+                next : "start"
+            }, {
+                token : "comment", // comment spanning whole line
+                regex : ".+"
+            }
+        ]
+		
     };
     
     this.normalizeRules();
