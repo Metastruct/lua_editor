@@ -45,7 +45,63 @@ var Mode = function() {
 };
 oop.inherits(Mode, TextMode);
 
-var ID_REGEX = /[a-zA-Z_0-9\$\-\u00A2-\uFFFF]/;
+var ID_REGEX = /[\.\:a-zA-Z_0-9\$\-\u00A2-\uFFFF]/;
+
+/*
+var Qwe = function() {
+
+};
+
+(function() {
+
+    this.getCompletions = function(state, session, pos, prefix) {
+        console.log("hacks");
+		var token = session.getTokenAt(pos.row, pos.column);
+
+        if (!token)
+            return [];
+
+        // tag name
+        if (is(token, "tag-name") || is(token, "tag-open") || is(token, "end-tag-open"))
+            return this.getTagCompletions(state, session, pos, prefix);
+
+        // tag attribute
+        if (is(token, "tag-whitespace") || is(token, "attribute-name"))
+            return this.getAttributeCompetions(state, session, pos, prefix);
+
+        return [];
+    };
+
+    this.getTagCompletions = function(state, session, pos, prefix) {
+        return elements.map(function(element){
+            return {
+                value: element,
+                meta: "tag",
+                score: Number.MAX_VALUE
+            };
+        });
+    };
+
+    this.getAttributeCompetions = function(state, session, pos, prefix) {
+        var tagName = findTagName(session, pos);
+        if (!tagName)
+            return [];
+        var attributes = globalAttributes;
+        if (tagName in attributeMap) {
+            attributes = attributes.concat(attributeMap[tagName]);
+        }
+        return attributes.map(function(attribute){
+            return {
+                caption: attribute,
+                snippet: attribute + '="$0"',
+                meta: "attribute",
+                score: Number.MAX_VALUE
+            };
+        });
+    };
+
+}).call(Qwe.prototype);
+*/
 
 (function() {
    
@@ -162,7 +218,15 @@ var ID_REGEX = /[a-zA-Z_0-9\$\-\u00A2-\uFFFF]/;
     };
 
     this.$id = "ace/mode/glua";
-		
+	
+    //this.completer = {
+	//		"getCompletions":function(state, session, pos, prefix, cb) {
+	//			
+	//		},
+	//		"identifierRegexps":Array(ID_REGEX)
+	//};
+	//this.identifierRegexps = function(){};
+	
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
