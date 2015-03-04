@@ -37,6 +37,7 @@ var GLuaHighlightRules = require("./glua_highlight_rules").GLuaHighlightRules;
 var GLuaFoldMode = require("./folding/lua").FoldMode;
 var Range = require("../range").Range;
 var WorkerClient = require("../worker/worker_client").WorkerClient;
+//var LanguageTools = require("ace/ext/language_tools");
 
 var Mode = function() {
     this.HighlightRules = GLuaHighlightRules;
@@ -45,7 +46,8 @@ var Mode = function() {
 };
 oop.inherits(Mode, TextMode);
 
-var ID_REGEX = /[\.\:a-zA-Z_0-9\$\-\u00A2-\uFFFF]/;
+var ID_REGEX = /[:\.a-zA-Z_0-9]/;
+var ID_REGEX2 = /:[:\.a-zA-Z_0-9]/;
 
 /*
 var Qwe = function() {
@@ -219,13 +221,14 @@ var Qwe = function() {
 
     this.$id = "ace/mode/glua";
 	
-    //this.completer = {
-	//		"getCompletions":function(state, session, pos, prefix, cb) {
-	//			
-	//		},
-	//		"identifierRegexps":Array(ID_REGEX)
-	//};
-	//this.identifierRegexps = function(){};
+    this.completer = {
+			"getCompletions":function(state, session, pos, prefix, cb) {
+				console.log("'"+prefix+"'");
+				var completions = session.$mode.getCompletions(state, session, pos, prefix);
+				cb(null, completions);
+			},
+			"identifierRegexps":Array(ID_REGEX,ID_REGEX2)
+	};
 	
 }).call(Mode.prototype);
 
