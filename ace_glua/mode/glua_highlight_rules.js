@@ -34,7 +34,7 @@ var GLuaHighlightRules = function() {
         "gethook|setmetatable|setlocal|traceback|setfenv|getinfo|"+
         "setupvalue|getlocal|getregistry|getfenv|setn|insert|getn|"+
         "foreachi|maxn|foreach|concat|sort|remove|resume|yield|"+
-        "status|wrap|create|running|"+
+        "status|wrap|create|ents.Create|ents_createx|:Kill|running|"+
       // metatableMethods
         "__add|__sub|__mod|__unm|__concat|__lt|__index|__call|__gc|__metatable|"+
          "__mul|__div|__pow|__len|__eq|__le|__newindex|__tostring|__mode|__tonumber"
@@ -150,7 +150,7 @@ var GLuaHighlightRules = function() {
             regex : integer + "\\b"
         }, {
             token : keywordMapper,
-            regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
+            regex : "[a-zA-Z_$\\:][\\.a-zA-Z0-9_$]*\\b"
         }, {
             token : "keyword.operator",
             regex : "\\+|\\-|\\*|\\/|%|\\#|\\^|~|!=|!|\\|\\||&&|<|>|<=|=>|==|~=|=|\\:|\\.\\.\\.|\\.\\."
