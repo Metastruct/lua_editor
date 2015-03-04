@@ -34,7 +34,7 @@ define(function(require, exports, module) {
 var oop = require("../lib/oop");
 var TextMode = require("./text").Mode;
 var GLuaHighlightRules = require("./glua_highlight_rules").GLuaHighlightRules;
-var GLuaFoldMode = require("./folding/glua").FoldMode;
+var GLuaFoldMode = require("./folding/lua").FoldMode;
 var Range = require("../range").Range;
 var WorkerClient = require("../worker/worker_client").WorkerClient;
 
@@ -44,6 +44,8 @@ var Mode = function() {
     this.foldingRules = new GLuaFoldMode();
 };
 oop.inherits(Mode, TextMode);
+
+var ID_REGEX = /[a-zA-Z_0-9\$\-\u00A2-\uFFFF]/;
 
 (function() {
    
@@ -160,6 +162,7 @@ oop.inherits(Mode, TextMode);
     };
 
     this.$id = "ace/mode/glua";
+		
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
