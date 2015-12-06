@@ -38,12 +38,10 @@ var GLuaFoldMode = require("./folding/lua").FoldMode;
 var Range = require("../range").Range;
 var WorkerClient = require("../worker/worker_client").WorkerClient;
 //var LanguageTools = require("ace/ext/language_tools");
-
 var Mode = function() {
     this.HighlightRules = GLuaHighlightRules;
-    
     this.foldingRules = new GLuaFoldMode();
-};
+}; 
 oop.inherits(Mode, TextMode);
 
 var ID_REGEX = /[:\.a-zA-Z_0-9]/;
@@ -220,10 +218,10 @@ var Qwe = function() {
     };
 
     this.$id = "ace/mode/glua";
-	
+	 
     this.completer = {
 			"getCompletions":function(state, session, pos, prefix, cb) {
-				console.log("'"+prefix+"'");
+				//console.log("getCompletions prefix '"+prefix+"' pos: "+pos);
 				var completions = session.$mode.getCompletions(state, session, pos, prefix);
 				cb(null, completions);
 			},

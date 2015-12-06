@@ -1,0 +1,11 @@
+--- ace/lib/ace/autocomplete/util.js	2015-12-06 23:46:21.488896100 +0000
++++ ace/lib/ace/autocomplete/util.js	2015-12-06 23:45:58.192896100 +0000
+@@ -45,7 +45,7 @@
+     }
+ };
+ 
+-var ID_REGEX = /[a-zA-Z_0-9\$\-\u00A2-\uFFFF]/;
++var ID_REGEX = /[a-zA-Z_0-9\$\-\u00A2-\uFFFF\.\:]/;
+ 
+ exports.retrievePrecedingIdentifier = function(text, pos, regex) {
+     regex = regex || ID_REGEX;

@@ -1,10 +1,10 @@
 all: setup update build install
 
-.PHONY: rebuild setup update build update_repos update_deps install test clean build_normal build_min
+.PHONY: rebuild setup update build update_repos update_deps install serve servebg  clean build_normal build_min refresh_overlay build_fast ci
 
-rebuild: build install test
+rebuild: build install
 
-testbuild: build_normal install test
+build_fast: build_normal install
 
 
 setup:
@@ -27,10 +27,11 @@ update_repos:
 	@echo update master
 	cd lua_editor_master; git pull
 	
+refresh_overlay:
 	@echo Overlaying files
 	cd lua_editor_master; cp ace_glua/* ../ace/lib/ace/ -r 
 
-update_deps:	
+update_deps: refresh_overlay
 	@echo update node deps
 	cd ace; npm install; cd tool; npm install
 	
@@ -43,12 +44,12 @@ clean:
 		@echo Remove existing build
 		rm ace/build -rf
 
-build_normal: clean
+build_normal: clean refresh_overlay
 
 	@echo Normal build
 	cd ace; node ./Makefile.dryice.js > ../build.log
 
-build_min: clean
+build_min: clean refresh_overlay
 
 	@echo Minified build
 	cd ace; node ./Makefile.dryice.js -m > ../buildmin.log 
@@ -68,9 +69,20 @@ install: install_clean
 	
 	@cp -v lua_editor_gh/index.html lua_editor_gh/debug/index.html
 
-.IGNORE: test
+.IGNORE: serve servebg
 
-test:
+serve:
 	@echo Starting test http server on port 8080
+	@python3 --version
 	-trap 'true' INT TERM; cd lua_editor_gh; python3 -m http.server 8080
 	@echo End test
+	
+servebg:
+	@echo Starting test http server on port 8080
+	@python3 --version
+	cd lua_editor_gh; python3 -m http.server 8080 &
+	@sleep 1
+	@echo End test
+
+ci:
+	when-changed lua_editor_master/ace_glua/mode/glua* lua_editor_gh/index.html -c $(MAKE) build_fast
