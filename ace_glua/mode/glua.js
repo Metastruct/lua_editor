@@ -47,61 +47,7 @@ oop.inherits(Mode, TextMode);
 var ID_REGEX = /[:\.a-zA-Z_0-9]/;
 var ID_REGEX2 = /:[:\.a-zA-Z_0-9]/;
 
-/*
-var Qwe = function() {
 
-};
-
-(function() {
-
-    this.getCompletions = function(state, session, pos, prefix) {
-        console.log("hacks");
-		var token = session.getTokenAt(pos.row, pos.column);
-
-        if (!token)
-            return [];
-
-        // tag name
-        if (is(token, "tag-name") || is(token, "tag-open") || is(token, "end-tag-open"))
-            return this.getTagCompletions(state, session, pos, prefix);
-
-        // tag attribute
-        if (is(token, "tag-whitespace") || is(token, "attribute-name"))
-            return this.getAttributeCompetions(state, session, pos, prefix);
-
-        return [];
-    };
-
-    this.getTagCompletions = function(state, session, pos, prefix) {
-        return elements.map(function(element){
-            return {
-                value: element,
-                meta: "tag",
-                score: Number.MAX_VALUE
-            };
-        });
-    };
-
-    this.getAttributeCompetions = function(state, session, pos, prefix) {
-        var tagName = findTagName(session, pos);
-        if (!tagName)
-            return [];
-        var attributes = globalAttributes;
-        if (tagName in attributeMap) {
-            attributes = attributes.concat(attributeMap[tagName]);
-        }
-        return attributes.map(function(attribute){
-            return {
-                caption: attribute,
-                snippet: attribute + '="$0"',
-                meta: "attribute",
-                score: Number.MAX_VALUE
-            };
-        });
-    };
-
-}).call(Qwe.prototype);
-*/
 
 (function() {
    
@@ -202,17 +148,18 @@ var Qwe = function() {
         session.outdentRows(new Range(row, 0, row + 2, 0));
     };
 
+	//TODO: remove
     this.createWorker = function(session) {
         var worker = new WorkerClient(["ace"], "ace/mode/glua_worker", "Worker");
         worker.attachToDocument(session.getDocument());
         
-        worker.on("annotate", function(e) {
-            session.setAnnotations(e.data);
-        });
+        //worker.on("annotate", function(e) {
+        //    session.setAnnotations(e.data);
+        //});
         
-        worker.on("terminate", function() {
-            session.clearAnnotations();
-        });
+        //worker.on("terminate", function() {
+        //    session.clearAnnotations();
+        //});
         
         return worker;
     };
@@ -224,8 +171,8 @@ var Qwe = function() {
 				//console.log("getCompletions prefix '"+prefix+"' pos: "+pos);
 				var completions = session.$mode.getCompletions(state, session, pos, prefix);
 				cb(null, completions);
-			},
-			"identifierRegexps":Array(ID_REGEX,ID_REGEX2)
+			}
+			 , "identifierRegexps":Array( ID_REGEX, ID_REGEX2 )
 	};
 	
 }).call(Mode.prototype);
@@ -234,3 +181,58 @@ exports.Mode = Mode;
 });
 
 
+/*
+var Qwe = function() {
+
+};
+
+(function() {
+
+    this.getCompletions = function(state, session, pos, prefix) {
+        console.log("hacks");
+		var token = session.getTokenAt(pos.row, pos.column);
+
+        if (!token)
+            return [];
+
+        // tag name
+        if (is(token, "tag-name") || is(token, "tag-open") || is(token, "end-tag-open"))
+            return this.getTagCompletions(state, session, pos, prefix);
+
+        // tag attribute
+        if (is(token, "tag-whitespace") || is(token, "attribute-name"))
+            return this.getAttributeCompetions(state, session, pos, prefix);
+
+        return [];
+    };
+
+    this.getTagCompletions = function(state, session, pos, prefix) {
+        return elements.map(function(element){
+            return {
+                value: element,
+                meta: "tag",
+                score: Number.MAX_VALUE
+            };
+        });
+    };
+
+    this.getAttributeCompetions = function(state, session, pos, prefix) {
+        var tagName = findTagName(session, pos);
+        if (!tagName)
+            return [];
+        var attributes = globalAttributes;
+        if (tagName in attributeMap) {
+            attributes = attributes.concat(attributeMap[tagName]);
+        }
+        return attributes.map(function(attribute){
+            return {
+                caption: attribute,
+                snippet: attribute + '="$0"',
+                meta: "attribute",
+                score: Number.MAX_VALUE
+            };
+        });
+    };
+
+}).call(Qwe.prototype);
+*/
