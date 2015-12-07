@@ -1,0 +1,7 @@
+
+editor_ac = {};
+
+editor_ac.$enums = ("TEST_ENUM|TEST_ENUM2").split("|");
+editor_ac.$globals = ("hook.Test").split("|");
+
+console.log("Clientside autocomplete opened");
