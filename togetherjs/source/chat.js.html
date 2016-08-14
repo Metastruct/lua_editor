@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>
+      Mozilla Labs : TogetherJS
+    </title>
+    <meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="description" content="Real time collaboration features for your website or app.">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../images/fav-icon.ico">
+
+    <!-- use this block to set togetherjs config -->
+    
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/parallax.js"></script>
+    <script src="../js/custom.js"></script>
+    <script src="../js/scrollTo.js"></script>
+    <script src="../js/scrollspy.js"></script>
+    <script src="../js/waypoints.min.js"></script>
+    <script src="../js/how-animations.js"></script>
+    <script src="../togetherjs.js"></script>
+
+    <!-- retina library -->
+    <script src="../js/retina.js"></script>
+
+    <script src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-35433268-28']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/jumbotron.css" rel="stylesheet">
+    <link href="../css/carousel.css" rel="stylesheet">
+    <link href="../css/grid.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet" href="../css/docco.css">
+  <script src="../js/source-code.js"></script>
+
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
+      </script>
+    <![endif]-->
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-35433268-43', 'togetherjs.com');
+    ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body >
+    <div class="navbar main-header" id="main-navbar">
+
+      <!-- Tabzilla -->
+      <a href="https://www.mozilla.org/" id="tabzilla">mozilla</a>
+
+      <!-- start container -->
+      <div class="container navbox">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand main-logo" href=".././"></a>
+          <a class="navbar-brand masthead-title" href=".././">TogetherJS</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right main-nav">
+            <li><a href=".././"  >Overview</a></li>
+            <li><a class="documentationActive"href=".././docs/"  >Documentation</a></li>
+            <li><a href="https://github.com/mozilla/togetherjs" target="_blank">Github</a></li>
+            <li><a href="mailto:togetherjs@mozilla.com">Contact</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+
+      </div>
+    </div>
+
+
+    
+
+<div class="container">
+
+    <section class="row" id="sourcecode">
+      <div class="col-md-3" id="source-toc">
+        <div class="panel" role="complementary" data-spy="affix" data-offset-top="200" id="sidenav">
+          <div class="panel-heading">Source Code</div>
+          <ul class="nav" id="sectionmenu">
+            
+              <li><a href="analytics.js.html">analytics</a></li>
+            
+              <li><a href="channels.js.html">channels</a></li>
+            
+              <li><a href="chat.js.html">chat</a></li>
+            
+              <li><a href="console.js.html">console</a></li>
+            
+              <li><a href="cursor.js.html">cursor</a></li>
+            
+              <li><a href="elementFinder.js.html">elementFinder</a></li>
+            
+              <li><a href="eventMaker.js.html">eventMaker</a></li>
+            
+              <li><a href="forms.js.html">forms</a></li>
+            
+              <li><a href="jqueryPlugins.js.html">jqueryPlugins</a></li>
+            
+              <li><a href="linkify.js.html">linkify</a></li>
+            
+              <li><a href="ot.js.html">ot</a></li>
+            
+              <li><a href="peers.js.html">peers</a></li>
+            
+              <li><a href="playback.js.html">playback</a></li>
+            
+              <li><a href="randomutil.js.html">randomutil</a></li>
+            
+              <li><a href="recorder.js.html">recorder</a></li>
+            
+              <li><a href="session.js.html">session</a></li>
+            
+              <li><a href="startup.js.html">startup</a></li>
+            
+              <li><a href="storage.js.html">storage</a></li>
+            
+              <li><a href="templates-localized.js.html">templates-localized</a></li>
+            
+              <li><a href="templates.js.html">templates</a></li>
+            
+              <li><a href="templating.js.html">templating</a></li>
+            
+              <li><a href="togetherjs.js.html">togetherjs</a></li>
+            
+              <li><a href="ui.js.html">ui</a></li>
+            
+              <li><a href="util.js.html">util</a></li>
+            
+              <li><a href="videos.js.html">videos</a></li>
+            
+              <li><a href="visibilityApi.js.html">visibilityApi</a></li>
+            
+              <li><a href="walkthrough.js.html">walkthrough</a></li>
+            
+              <li><a href="webrtc.js.html">webrtc</a></li>
+            
+              <li><a href="who.js.html">who</a></li>
+            
+              <li><a href="windowing.js.html">windowing</a></li>
+            
+              <li><a href="youtubeVideos.js.html">youtubeVideos</a></li>
+            
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-9" id="source-content">
+        <h1>chat.js</h1>
+        
+          <h4><p>Handles the chat messages (except actual display, which is in <code>ui.js</code>).</p>
+</h4>
+        
+
+        <div class="small"><a href="https://github.com/mozilla/togetherjs/blob/develop/togetherjs/chat.js">See this file on Github</a></div>
+
+        <ul class="sections">
+          
+            <li id="section-0">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-0">&#182;</a>
+                </div>
+                
+              </div>
+              
+                <div class="content"><div class='highlight'><pre><span class="comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */</span>
+<span class="comment">/*jshint evil:true */</span>
+define([<span class="string">"require"</span>, <span class="string">"jquery"</span>, <span class="string">"util"</span>, <span class="string">"session"</span>, <span class="string">"ui"</span>, <span class="string">"templates"</span>, <span class="string">"playback"</span>, <span class="string">"storage"</span>, <span class="string">"peers"</span>, <span class="string">"windowing"</span>], <span class="function"><span class="keyword">function</span> <span class="params">(require, $, util, session, ui, templates, playback, storage, peers, windowing)</span> {</span>
+  <span class="keyword">var</span> chat = util.Module(<span class="string">"chat"</span>);
+  <span class="keyword">var</span> assert = util.assert;
+  <span class="keyword">var</span> Walkabout;
+
+  session.hub.on(<span class="string">"chat"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(msg)</span> {</span>
+    ui.chat.text({
+      text: msg.text,
+      peer: msg.peer,</pre></div></div>
+              
+            </li>
+          
+            <li id="section-1">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-1">&#182;</a>
+                </div>
+                <p>FIXME: a little unsure of trusting this (maybe I should prefix it?)</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      messageId: msg.messageId,
+      notify: <span class="literal">true</span>
+    });
+    saveChatMessage({
+      text: msg.text,
+      date: Date.now(),
+      peerId: msg.peer.id,
+      messageId: msg.messageId
+    });
+  });</pre></div></div>
+              
+            </li>
+          
+            <li id="section-2">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-2">&#182;</a>
+                </div>
+                <p>FIXME: this doesn’t really belong in this module:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>  session.hub.on(<span class="string">"bye"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(msg)</span> {</span>
+    ui.chat.leftSession({
+      peer: msg.peer,
+      declinedJoin: msg.reason == <span class="string">"declined-join"</span>
+    });
+  });
+
+  chat.submit = <span class="function"><span class="keyword">function</span> <span class="params">(message)</span> {</span>
+    <span class="keyword">var</span> parts = message.split(<span class="regexp">/ /</span>);
+    <span class="keyword">if</span> (parts[<span class="number">0</span>].charAt(<span class="number">0</span>) == <span class="string">"/"</span>) {
+      <span class="keyword">var</span> name = parts[<span class="number">0</span>].substr(<span class="number">1</span>).toLowerCase();
+      <span class="keyword">var</span> method = commands[<span class="string">"command_"</span> + name];
+      <span class="keyword">if</span> (method) {
+        method.apply(<span class="literal">null</span>, parts.slice(<span class="number">1</span>));
+        <span class="keyword">return</span>;
+      }
+    }
+    <span class="keyword">var</span> messageId = session.clientId + <span class="string">"-"</span> + Date.now();
+    session.send({
+      type: <span class="string">"chat"</span>,
+      text: message,
+      messageId: messageId
+    });
+    ui.chat.text({
+      text: message,
+      peer: peers.Self,
+      messageId: messageId,
+      notify: <span class="literal">false</span>
+    });
+    saveChatMessage({
+      text: message,
+      date: Date.now(),
+      peerId: peers.Self.id,
+      messageId: messageId
+    });
+  };
+
+  <span class="keyword">var</span> commands = {
+    command_help: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      <span class="keyword">var</span> msg = util.trim(templates(<span class="string">"help"</span>));
+      ui.chat.system({
+        text: msg
+      });
+    },
+
+    command_test: <span class="function"><span class="keyword">function</span> <span class="params">(args)</span> {</span>
+      <span class="keyword">if</span> (! Walkabout) {
+        require([<span class="string">"walkabout"</span>], (<span class="function"><span class="keyword">function</span> <span class="params">(WalkaboutModule)</span> {</span>
+          Walkabout = WalkaboutModule;
+          <span class="keyword">this</span>.command_test(args);
+        }).bind(<span class="keyword">this</span>));
+        <span class="keyword">return</span>;
+      }
+      args = util.trim(args || <span class="string">""</span>).split(<span class="regexp">/\s+/g</span>);
+      <span class="keyword">if</span> (args[<span class="number">0</span>] === <span class="string">""</span> || ! args.length) {
+        <span class="keyword">if</span> (<span class="keyword">this</span>._testCancel) {
+          args = [<span class="string">"cancel"</span>];
+        } <span class="keyword">else</span> {
+          args = [<span class="string">"start"</span>];
+        }
+      }
+      <span class="keyword">if</span> (args[<span class="number">0</span>] == <span class="string">"cancel"</span>) {
+        ui.chat.system({
+          text: <span class="string">"Aborting test"</span>
+        });
+        <span class="keyword">this</span>._testCancel();
+        <span class="keyword">this</span>._testCancel = <span class="literal">null</span>;
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">if</span> (args[<span class="number">0</span>] == <span class="string">"start"</span>) {
+        <span class="keyword">var</span> times = parseInt(args[<span class="number">1</span>], <span class="number">10</span>);
+        <span class="keyword">if</span> (isNaN(times) || ! times) {
+          times = <span class="number">100</span>;
+        }
+        ui.chat.system({
+          text: <span class="string">"Testing with walkabout.js"</span>
+        });
+        <span class="keyword">var</span> tmpl = $(templates(<span class="string">"walkabout"</span>));
+        <span class="keyword">var</span> container = ui.container.find(<span class="string">".togetherjs-test-container"</span>);
+        container.empty();
+        container.append(tmpl);
+        container.show();
+        <span class="keyword">var</span> statusContainer = container.find(<span class="string">".togetherjs-status"</span>);
+        statusContainer.text(<span class="string">"starting..."</span>);
+        <span class="keyword">this</span>._testCancel = Walkabout.runManyActions({
+          ondone: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+            statusContainer.text(<span class="string">"done"</span>);
+            statusContainer.one(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+              container.hide();
+            });
+            <span class="keyword">this</span>._testCancel = <span class="literal">null</span>;
+          },
+          onstatus: <span class="function"><span class="keyword">function</span> <span class="params">(status)</span> {</span>
+            <span class="keyword">var</span> note = <span class="string">"actions: "</span> + status.actions.length + <span class="string">" running: "</span> +
+              (status.times - status.remaining) + <span class="string">" / "</span> + status.times;
+            statusContainer.text(note);
+          }
+        });
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">if</span> (args[<span class="number">0</span>] == <span class="string">"show"</span>) {
+        <span class="keyword">if</span> (<span class="keyword">this</span>._testShow.length) {
+          <span class="keyword">this</span>._testShow.forEach(<span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+            <span class="keyword">if</span> (item) {
+              item.remove();
+            }
+          }, <span class="keyword">this</span>);
+          <span class="keyword">this</span>._testShow = [];
+        } <span class="keyword">else</span> {
+          <span class="keyword">var</span> actions = Walkabout.findActions();
+          actions.forEach(<span class="function"><span class="keyword">function</span> <span class="params">(action)</span> {</span>
+            <span class="keyword">this</span>._testShow.push(action.show());
+          }, <span class="keyword">this</span>);
+        }
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">if</span> (args[<span class="number">0</span>] == <span class="string">"describe"</span>) {
+        Walkabout.findActions().forEach(<span class="function"><span class="keyword">function</span> <span class="params">(action)</span> {</span>
+          ui.chat.system({
+            text: action.description()
+          });
+        }, <span class="keyword">this</span>);
+        <span class="keyword">return</span>;
+      }
+      ui.chat.system({
+        text: <span class="string">"Did not understand: "</span> + args.join(<span class="string">" "</span>)
+      });
+    },
+
+    _testCancel: <span class="literal">null</span>,
+    _testShow: [],
+
+    command_clear: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      ui.chat.clear();
+    },
+
+    command_exec: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      <span class="keyword">var</span> expr = Array.prototype.slice.call(arguments).join(<span class="string">" "</span>);
+      <span class="keyword">var</span> result;</pre></div></div>
+              
+            </li>
+          
+            <li id="section-3">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-3">&#182;</a>
+                </div>
+                <p>We use this to force global eval (not in this scope):</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      <span class="keyword">var</span> e = eval;
+      <span class="keyword">try</span> {
+        result = e(expr);
+      } <span class="keyword">catch</span> (error) {
+        ui.chat.system({
+          text: <span class="string">"Error: "</span> + error
+        });
+      }
+      <span class="keyword">if</span> (result !== <span class="literal">undefined</span>) {
+        ui.chat.system({
+          text: <span class="string">""</span> + result
+        });
+      }
+    },
+
+    command_record: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      ui.chat.system({
+        text: <span class="string">"When you see the robot appear, the recording will have started"</span>
+      });
+      window.open(
+        session.recordUrl(), <span class="string">"_blank"</span>,
+        <span class="string">"left,width="</span> + ($(window).width() / <span class="number">2</span>));
+    },
+
+    playing: <span class="literal">null</span>,
+
+    command_playback: <span class="function"><span class="keyword">function</span> <span class="params">(url)</span> {</span>
+      <span class="keyword">if</span> (<span class="keyword">this</span>.playing) {
+        <span class="keyword">this</span>.playing.cancel();
+        <span class="keyword">this</span>.playing.unload();
+        <span class="keyword">this</span>.playing = <span class="literal">null</span>;
+        ui.chat.system({
+          text: <span class="string">"playback cancelled"</span>
+        });
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">if</span> (! url) {
+        ui.chat.system({
+          text: <span class="string">"Nothing is playing"</span>
+        });
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">var</span> logLoader = playback.getLogs(url);
+      logLoader.then(
+        (<span class="function"><span class="keyword">function</span> <span class="params">(logs)</span> {</span>
+          <span class="keyword">if</span> (! logs) {
+            ui.chat.system({
+              text: <span class="string">"No logs found."</span>
+            });
+            <span class="keyword">return</span>;
+          }
+          logs.save();
+          <span class="keyword">this</span>.playing = logs;
+          logs.play();
+        }).bind(<span class="keyword">this</span>),
+        <span class="function"><span class="keyword">function</span> <span class="params">(error)</span> {</span>
+          ui.chat.system({
+            text: <span class="string">"Error fetching "</span> + url + <span class="string">":\n"</span> + JSON.stringify(error, <span class="literal">null</span>, <span class="string">"  "</span>)
+          });
+        });
+      windowing.hide(<span class="string">"#togetherjs-chat"</span>);
+    },
+
+    command_savelogs: <span class="function"><span class="keyword">function</span> <span class="params">(name)</span> {</span>
+      session.send({
+        type: <span class="string">"get-logs"</span>,
+        forClient: session.clientId,
+        saveAs: name
+      });
+      <span class="function"><span class="keyword">function</span> <span class="title">save</span><span class="params">(msg)</span> {</span>
+        <span class="keyword">if</span> (msg.request.forClient == session.clientId &amp;&amp; msg.request.saveAs == name) {
+          storage.set(<span class="string">"recording."</span> + name, msg.logs).then(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+            session.hub.off(<span class="string">"logs"</span>, save);
+            ui.chat.system({
+              text: <span class="string">"Saved as local:"</span> + name
+            });
+          });
+        }
+      }
+      session.hub.on(<span class="string">"logs"</span>, save);
+    },
+
+    command_baseurl: <span class="function"><span class="keyword">function</span> <span class="params">(url)</span> {</span>
+      <span class="keyword">if</span> (! url) {
+        storage.get(<span class="string">"baseUrlOverride"</span>).then(<span class="function"><span class="keyword">function</span> <span class="params">(b)</span> {</span>
+          <span class="keyword">if</span> (b) {
+            ui.chat.system({
+              text: <span class="string">"Set to: "</span> + b.baseUrl
+            });
+          } <span class="keyword">else</span> {
+            ui.chat.system({
+              text: <span class="string">"No baseUrl override set"</span>
+            });
+          }
+        });
+        <span class="keyword">return</span>;
+      }
+      url = url.replace(<span class="regexp">/\/*$/</span>, <span class="string">""</span>);
+      ui.chat.system({
+        text: <span class="string">"If this goes wrong, do this in the console to reset:\n  localStorage.setItem('togetherjs.baseUrlOverride', null)"</span>
+      });
+      storage.set(<span class="string">"baseUrlOverride"</span>, {
+        baseUrl: url,
+        expiresAt: Date.now() + (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>)
+      }).then(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        ui.chat.system({
+          text: <span class="string">"baseUrl overridden (to "</span> + url + <span class="string">"), will last for one day."</span>
+        });
+      });
+    },
+
+    command_config: <span class="function"><span class="keyword">function</span> <span class="params">(variable, value)</span> {</span>
+      <span class="keyword">if</span> (! (variable || value)) {
+        storage.get(<span class="string">"configOverride"</span>).then(<span class="function"><span class="keyword">function</span> <span class="params">(c)</span> {</span>
+          <span class="keyword">if</span> (c) {
+            util.forEachAttr(c, <span class="function"><span class="keyword">function</span> <span class="params">(value, attr)</span> {</span>
+              <span class="keyword">if</span> (attr == <span class="string">"expiresAt"</span>) {
+                <span class="keyword">return</span>;
+              }
+              ui.chat.system({
+                text: <span class="string">"  "</span> + attr + <span class="string">" = "</span> + JSON.stringify(value)
+              });
+            });
+            ui.chat.system({
+              text: <span class="string">"Config expires at "</span> + (<span class="keyword">new</span> Date(c.expiresAt))
+            });
+          } <span class="keyword">else</span> {
+            ui.chat.system({
+              text: <span class="string">"No config override"</span>
+            });
+          }
+        });
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">if</span> (variable == <span class="string">"clear"</span>) {
+        storage.set(<span class="string">"configOverride"</span>, <span class="literal">undefined</span>);
+        ui.chat.system({
+          text: <span class="string">"Clearing all overridden configuration"</span>
+        });
+        <span class="keyword">return</span>;
+      }
+      console.log(<span class="string">"config"</span>, [variable, value]);
+      <span class="keyword">if</span> (! (variable &amp;&amp; value)) {
+        ui.chat.system({
+          text: <span class="string">"Error: must provide /config VAR VALUE"</span>
+        });
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">try</span> {
+        value = JSON.parse(value);
+      } <span class="keyword">catch</span> (e) {
+        ui.chat.system({
+          text: <span class="string">"Error: value ("</span> + value + <span class="string">") could not be parsed: "</span> + e
+        });
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">if</span> (! TogetherJS._defaultConfiguration.hasOwnProperty(variable)) {
+        ui.chat.system({
+          text: <span class="string">"Warning: variable "</span> + variable + <span class="string">" is unknown"</span>
+        });
+      }
+      storage.get(<span class="string">"configOverride"</span>).then(<span class="function"><span class="keyword">function</span> <span class="params">(c)</span> {</span>
+        c = c || {};
+        c[variable] = value;
+        c.expiresAt = Date.now() + (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>);
+        storage.set(<span class="string">"configOverride"</span>, c).then(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+          ui.chat.system({
+            text: <span class="string">"Variable "</span> + variable + <span class="string">" = "</span> + JSON.stringify(value) + <span class="string">"\nValue will be set for one day."</span>
+          });
+        });
+      });
+    }
+
+  };</pre></div></div>
+              
+            </li>
+          
+            <li id="section-4">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-4">&#182;</a>
+                </div>
+                <p>this section deal with saving/restoring chat history as long as session is alive</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> chatStorageKey = <span class="string">"chatlog"</span>;
+  <span class="keyword">var</span> maxLogMessages = <span class="number">100</span>;
+
+  <span class="function"><span class="keyword">function</span> <span class="title">saveChatMessage</span><span class="params">(obj)</span> {</span>
+    assert(obj.peerId);
+    assert(obj.messageId);
+    assert(obj.date);
+    assert(<span class="keyword">typeof</span> obj.text == <span class="string">"string"</span>);
+
+    loadChatLog().then(<span class="function"><span class="keyword">function</span> <span class="params">(log)</span> {</span>
+      <span class="keyword">for</span> (<span class="keyword">var</span> i = log.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) {
+        <span class="keyword">if</span> (log[i].messageId === obj.messageId) {
+          <span class="keyword">return</span>;
+        }
+      }
+      log.push(obj);
+      <span class="keyword">if</span> (log.length &gt; maxLogMessages) {
+        log.splice(<span class="number">0</span>, log.length - maxLogMessages);
+      }
+      storage.tab.set(chatStorageKey, log);
+    });
+  }
+
+  <span class="function"><span class="keyword">function</span> <span class="title">loadChatLog</span><span class="params">()</span> {</span>
+    <span class="keyword">return</span> storage.tab.get(chatStorageKey, []);
+  }
+
+  session.once(<span class="string">"ui-ready"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    loadChatLog().then(<span class="function"><span class="keyword">function</span> <span class="params">(log)</span> {</span>
+      <span class="keyword">if</span> (! log) {
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; log.length; i++) {</pre></div></div>
+              
+            </li>
+          
+            <li id="section-5">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-5">&#182;</a>
+                </div>
+                <p>peers should already be loaded from sessionStorage by the peers module</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>        <span class="keyword">var</span> currentPeer = peers.getPeer(log[i].peerId, <span class="literal">null</span>, <span class="literal">true</span>);
+        <span class="keyword">if</span> (!currentPeer) {</pre></div></div>
+              
+            </li>
+          
+            <li id="section-6">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-6">&#182;</a>
+                </div>
+                <p>sometimes peers go away</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>          <span class="keyword">continue</span>;
+        }
+        ui.chat.text({
+          text: log[i].text,
+          date: log[i].date,
+          peer: currentPeer,
+          messageId: log[i].messageId
+        });
+      }
+    });
+  });</pre></div></div>
+              
+            </li>
+          
+            <li id="section-7">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-7">&#182;</a>
+                </div>
+                <p>delete chat log</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>  session.on(<span class="string">"close"</span>, <span class="keyword">function</span>(){
+    storage.tab.set(chatStorageKey, <span class="literal">undefined</span>);
+  });
+
+  <span class="keyword">return</span> chat;
+
+});</pre></div></div>
+              
+            </li>
+          
+        </ul>
+      </div>
+    </section>
+
+
+
+
+
+
+        <hr>
+
+        <footer>
+
+          <section class="row" id="footer">
+            <div class="col-xs-12 col-sm-3 text-left">
+              <p><a href="https://mozillalabs.com/en-US/" target="_blank"><img src="../images/footer-mozilla-labs.png"></a></p>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+              <ul class="list-unstyled text-left">
+                <li class=""><a href=".././" class="">Overview</a></li>
+                <li><a href=".././docs/" target="_blank">Docs</a></li>
+                <li class=""><a href="https://github.com/mozilla/togetherjs" target="_blank">GitHub</a></li>
+                <li class=""><a href="mailto:togetherjs@mozilla.com" target="_blank">Contact</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+              <ul class="list-unstyled text-left">
+                <li class=""><a href="https://mozillalabs.com/en-US/togetherjs/" target="_blank">About</a></li>
+                <li><a href=".././docs/contributing.html">Contributing</a></li>
+                <li><a href="../source/">Source Code</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+                <li class=""><a href="https://twitter.com/togetherjs" target="_blank">Twitter</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+              <ul class="list-unstyled text-left">
+                <li class=""><a href="https://www.mozilla.org/privacy/websites/" target="_blank">Privacy Policy</a></li>
+                <li class=""><a href="https://www.mozilla.org/about/legal/" target="_blank">Legal Notices</a></li>
+                <li class=""><a href="https://www.mozilla.org/legal/fraud-report/" target="_blank">Report Trademark Abuses</a></li>
+                <li class="ph-credit">Thanks to Yuan Wang for the cover photo!</li>
+              </ul>
+            </div>
+          </section>
+        </footer>
+      </section>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

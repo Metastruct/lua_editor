@@ -1105,6 +1105,7 @@ exports.handler.addCommands({
         exec: function(editor) {
             exports.killRing.add(editor.getCopyText());
             editor.commands.byName.cut.exec(editor);
+            editor.setEmacsMark(null);
         },
         readOnly: true,
         multiSelectAction: "forEach"

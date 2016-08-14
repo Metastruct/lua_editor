@@ -19,7 +19,7 @@ var GLuaHighlightRules = function() {
 		for (var name in window.editor_ac) { if (window.editor_ac.hasOwnProperty(name)) {
 			var source = window.editor_ac[name];
 			var target = this[name];
-			if ("DEBUG" in window && DEBUG==true) {
+			if ("DEBUG" in window && DEBUG===true) {
 				console.log("Appending clientside highlight rules "+name);
 			}
 			if (target) {
@@ -48,11 +48,11 @@ var GLuaHighlightRules = function() {
 			} else {
 				console.log("cant concat "+k);
 			}
-		}};
+		}}
 		
 	} else {
 		console.log("glua: Could not load clientside highlights!");
-	};
+	}
 	var temp = {};
 	this.$objfuncs.forEach(function(e) { 
 		var splitted = e.split(':');
@@ -60,7 +60,7 @@ var GLuaHighlightRules = function() {
 	});
 	for (var k in temp) { if (temp.hasOwnProperty(k)) {
 		this.$objfuncs.push(":"+k);
-	}};
+	}}
 	
     var keywords = (
         "break|do|else|elseif|end|for|function|if|in|local|repeat|"+
@@ -71,14 +71,14 @@ var GLuaHighlightRules = function() {
 
     var functions = (
         "__add|__sub|__mod|__unm|__concat|__lt|__index|__call|__gc|__metatable|"+
-         "__mul|__div|__pow|__len|__eq|__le|__newindex|__tostring|__mode|__tonumber"
+         "__mul|__div|__pow|__len|__eq|__le|__newindex|__tostring|__mode|__tonumber" + 
     
-		+ '|' + this.$nonmodulefuncs.join('|')
-		+ '|' + this.$modulefuncs	.join('|')
-		+ '|' + this.$objfuncs		.join('|')
-		+ '|' + this.$enums			.join('|')
-		+ '|' + this.$hooks			.join('|')
-		+ '|' + this.$globals		.join('|')
+		 '|' + this.$nonmodulefuncs.join('|')  +
+		 '|' + this.$modulefuncs	.join('|') +
+		 '|' + this.$objfuncs		.join('|') +
+		 '|' + this.$enums			.join('|') +
+		 '|' + this.$hooks			.join('|') +
+		 '|' + this.$globals		.join('|')
 	
 	);
 
@@ -229,7 +229,7 @@ var GLuaHighlightRules = function() {
     };
     
     this.normalizeRules();
-}
+};
 
 oop.inherits(GLuaHighlightRules, TextHighlightRules);
 
@@ -495,8 +495,7 @@ var ID_REGEX2 = /:[:\.a-zA-Z_0-9]/;
 			"getCompletions":function(state, session, pos, prefix, cb) {
 				var completions = session.$mode.getCompletions(state, session, pos, prefix);
 				cb(null, completions);
-			}
-			 , "identifierRegexps":Array( ID_REGEX, ID_REGEX2 )
+			}, "identifierRegexps":Array( ID_REGEX, ID_REGEX2 )
 	};
 	
 }).call(Mode.prototype);

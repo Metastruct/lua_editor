@@ -243,6 +243,7 @@ var SnippetManager = function() {
         if (cursor.column < indentString.length)
             indentString = indentString.slice(0, cursor.column);
 
+        snippetText = snippetText.replace(/\r/g, "");
         var tokens = this.tokenizeTmSnippet(snippetText);
         tokens = this.resolveVariables(tokens, editor);
         tokens = tokens.map(function(x) {
@@ -320,9 +321,10 @@ var SnippetManager = function() {
         var text = "";
         tokens.forEach(function(t) {
             if (typeof t === "string") {
-                if (t[0] === "\n"){
-                    column = t.length - 1;
-                    row ++;
+                var lines = t.split("\n");
+                if (lines.length > 1){
+                    column = lines[lines.length - 1].length;
+                    row += lines.length - 1;
                 } else
                     column += t.length;
                 text += t;
@@ -1108,6 +1110,10 @@ exports.runEmmetCommand = function runEmmetCommand(editor) {
         if (this.action == "expand_abbreviation_with_tab") {
             if (!editor.selection.isEmpty())
                 return false;
+            var pos = editor.selection.lead;
+            var token = editor.session.getTokenAt(pos.row, pos.column);
+            if (token && /\btag\b/.test(token.type))
+                return false;
         }
         
         if (this.action == "wrap_with_abbreviation") {
@@ -1115,11 +1121,6 @@ exports.runEmmetCommand = function runEmmetCommand(editor) {
                 actions.run("wrap_with_abbreviation", editorProxy);
             }, 0);
         }
-        
-        var pos = editor.selection.lead;
-        var token = editor.session.getTokenAt(pos.row, pos.column);
-        if (token && /\btag\b/.test(token.type))
-            return false;
         
         var result = actions.run(this.action, editorProxy);
     } catch(e) {

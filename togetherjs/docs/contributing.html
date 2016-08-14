@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>
+      Mozilla Labs : TogetherJS
+    </title>
+    <meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="description" content="Real time collaboration features for your website or app.">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../images/fav-icon.ico">
+
+    <!-- use this block to set togetherjs config -->
+    
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/parallax.js"></script>
+    <script src="../js/custom.js"></script>
+    <script src="../js/scrollTo.js"></script>
+    <script src="../js/scrollspy.js"></script>
+    <script src="../js/waypoints.min.js"></script>
+    <script src="../js/how-animations.js"></script>
+    <script src="../togetherjs.js"></script>
+
+    <!-- retina library -->
+    <script src="../js/retina.js"></script>
+
+    <script src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-35433268-28']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/jumbotron.css" rel="stylesheet">
+    <link href="../css/carousel.css" rel="stylesheet">
+    <link href="../css/grid.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" rel="stylesheet" />
+
+    
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
+      </script>
+    <![endif]-->
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-35433268-43', 'togetherjs.com');
+    ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#markdownpages">
+    <div class="navbar main-header" id="main-navbar">
+
+      <!-- Tabzilla -->
+      <a href="https://www.mozilla.org/" id="tabzilla">mozilla</a>
+
+      <!-- start container -->
+      <div class="container navbox">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand main-logo" href=".././"></a>
+          <a class="navbar-brand masthead-title" href=".././">TogetherJS</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right main-nav">
+            <li><a href=".././"  >Overview</a></li>
+            <li><a class="documentationActive"href=".././docs/"  >Documentation</a></li>
+            <li><a href="https://github.com/mozilla/togetherjs" target="_blank">Github</a></li>
+            <li><a href="mailto:togetherjs@mozilla.com">Contact</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+
+      </div>
+    </div>
+
+
+    
+
+<div class="container">
+  <section class="row" id="markdownpages">
+    <div class="col-md-3">
+      <div class="panel" role="complementary" data-spy="affix" data-offset-top="200" id="sidenav">
+        <ul id="sectionmenu" class="nav">
+          <li><a href="#code-style" class="scrollnavdocs">Code Style</a></li>
+          <li><a href="#togetherjs-patterns" class="scrollnavdocs">TogetherJS Patterns</a></li>
+          <li><a href="#hosting-the-hub-server" class="scrollnavdocs">Hosting The Hub Server</a></li>
+          <li><a href="#the-issue-tracker-and-milestones" class="Scrollnavdocs">The Issue Tracker and Milestones</a></li>
+        </ul>
+        <div class="well">
+          <button type="button" class="btn btn-primary btn-lg btn-block">
+            Get help
+          </button>
+          <div class="small text-center">Get support from the TogetherJS team.</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <h1>Contributing to TogetherJS</h1>
+      
+<!--
+template: docs-contributing.tmpl
+
+Note: you should update the index in that template when adding
+sections to this document.
+-->
+
+<p>Here are a variety of notes about contributing to the TogetherJS codebase.  This isn’t stuff that applies if you are simply integrating TogetherJS in your site.</p>
+<h2 id="code-style">Code Style</h2>
+<p><a href="https://github.com/ianb/javascript">Here is a style document</a>.  It’s a fork of the <a href="https://github.com/airbnb/javascript">Airbnb</a> style guide, and maybe takes a little from the <a href="https://developer.mozilla.org/en-US/docs/Developer_Guide/Coding_Style">Mozilla style guide</a>, and then a little of our own opinions.</p>
+<h3 id="code-cleanliness">Code Cleanliness</h3>
+<p>Please figure out how to get your editor to delete trailing whitespace!  It’s a nuisance and creates useless diffs.  Files should also end with a newline.</p>
+<h2 id="togetherjs-patterns">TogetherJS Patterns</h2>
+<h3 id="modules">Modules</h3>
+<p>There are <a href="https://github.com/ianb/javascript#modules">some notes in the style guide</a>.  TogetherJS uses <a href="http://requirejs.org/">requirejs</a> for module loading, and the AMD pattern generally.  Each module should go in <code>app/http/togetherjs/public/</code> and look like:</p>
+<pre><code class="lang-javascript">define([<span class="string">"util"</span>, <span class="string">"jquery"</span>, <span class="string">"require"</span>], <span class="function"><span class="keyword">function</span> <span class="params">(util, $, require)</span> {</span>
+  <span class="keyword">var</span> myModule = util.Module(<span class="string">"myModule"</span>);
+  <span class="keyword">var</span> assert = util.assert;
+  myModule.object = ... <span class="comment">// and so on</span>
+  <span class="keyword">return</span> myModule;
+});</code></pre>
+<p>The first list is the dependencies (modules) you need.  If you need to require module modules later (lazily, or later than load time due to circular dependencies) you must include <code>require</code> among your dependencies.  There <em>is</em> a global <code>require()</code> object, but you can’t use it, because TogetherJS uses a <a href="http://requirejs.org/docs/api.html#multiversion">context</a>.</p>
+<p>You should define an object with a name matching the name of the module (and filename).  This way an object or function will be named the same throughout the project, both when used internally and externally (e.g., <code>myModule.object</code>), and when it is being created.</p>
+<p>If you want to load a module from the console, you do it like this:</p>
+<pre><code class="lang-javascript">session = require({context: <span class="string">"togetherjs"</span>})(<span class="string">"session"</span>);</code></pre>
+<p>(This form of <code>require</code> only works when the module is already loaded, but from the console that’s usually the case.)</p>
+<h3 id="classes">Classes</h3>
+<p>There is a class factory in <code>util.Class</code>.  It supports subclassing, but we haven’t used any subclasses yet, and I’m not sure we will.  Look at the implementation if you want to know more.</p>
+<p>To define a class, do:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> MyClass = util.Class({
+  constructor: <span class="function"><span class="keyword">function</span> <span class="params">(...)</span> {</span>...}
+});
+MyClass.classMethod = <span class="function"><span class="keyword">function</span> <span class="params">(...)</span> {</span>...};
+<span class="keyword">var</span> instance = MyClass();</code></pre>
+<p>The <code>constructor</code> function is called when the object is instantiated.  You don’t need to use <code>new</code> when creating instances, and really you shouldn’t (it’ll just create an object that’ll be thrown away).  MyClass.prototype is what you would expect.</p>
+<h3 id="this">this</h3>
+<p>You should understand how <code>this</code> is bound, and how that binding is lost.</p>
+<p>Generally we prefer using <code>.bind(this)</code> to keep the references to this (as opposed to using <code>self = this</code>).  For example:</p>
+<pre><code><span class="keyword">var</span> MyClass = Class({
+
+  goodExample: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    doSomething((<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span><span class="keyword">return</span> <span class="keyword">this</span>.foo;}).bind(<span class="keyword">this</span>));
+  },
+
+  badExample: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">var</span> <span class="keyword">self</span> = <span class="keyword">this</span>;
+    doSomething(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span><span class="keyword">return</span> <span class="keyword">self</span>.foo;});
+  }
+});</code></pre>
+<p>Why?  Mostly so that <code>this</code> is always called <code>this</code>, and you don’t have to figure out whether or where there is an alias.</p>
+<h3 id="templating">Templating</h3>
+<p>Right now we aren’t using any real templating system.  Almost everything is in <code>app/http/views/interface.html</code> – and most likely any new markup should also go there.</p>
+<p>We try to keep most of the code that actually touches the ui in <code>ui.js</code> – though it’s not done very strictly.  Moving stuff back into ui.js is appreciated though.</p>
+<p>“Templates” are just elements that are cloned out of <code>interface.html</code>.  They generally have an id like <code>togetherjs-template-foo</code>, and you’d clone them by doing <code>templating.sub(&quot;foo&quot;, {vars})</code>.</p>
+<p>You should avoid having text or markup in JavaScript, and instead clone templates or hide and show different elements to represent different states.  Occasionally you do need to put markup-related stuff in code (like pixel sizes or other details).  When this is the case leave a comment in both sources (HTML/CSS and JS) pointing to the other location.</p>
+<h3 id="stateless-controls">Stateless controls</h3>
+<p>Instead of “toggle” controls we prefer to show and hide controls for the alternate states.  For instances, if you have a expand/collapse control:</p>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">"togetherjs-collapse-foo"</span> <span class="attribute">data-toggles</span>=<span class="value">"#togetherjs-expand-foo"</span>&gt;</span>-<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+<span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">"togetherjs-expand-foo"</span> <span class="attribute">data-toggles</span>=<span class="value">"#togetherjs-collapse-foo"</span> <span class="attribute">style</span>=<span class="value">"display: none"</span>&gt;</span>+<span class="tag">&lt;/<span class="title">button</span>&gt;</span></code></pre>
+<p>Then use <code>ui.displayToggle(&quot;#togetherjs-expand-foo&quot;)</code> to show the expand button, and the collapse button will be automatically hidden.  Note that the selector in <code>data-toggles</code> can be inclusive of the element itself (everything matching selector will be hidden, except the element itself).</p>
+<p>This requires less state in the JavaScript, as the control is always an assertion to do something specific.  Also it means that we have to do a minimum of manipulation in JavaScript, and the two controls are not required to be styled identically.</p>
+<h3 id="async">Async</h3>
+<p>Use <a href="http://api.jquery.com/category/deferred-object/">jQuery.Deferred</a> when possible.  This is exposed as <code>util.Deferred</code></p>
+<h2 id="hosting-the-hub-server">Hosting the Hub Server</h2>
+<p>This has been <a href="./#hosting-the-hub-server">moved to the main docs</a>.</p>
+<h2 id="the-issue-tracker-and-milestones">The Issue Tracker and Milestones</h2>
+<p>We do most of our planning in the <a href="https://github.com/mozilla/togetherjs/issues">Github issue tracker</a>, and make use of the <a href="https://github.com/mozilla/togetherjs/issues/milestones">Milestones</a> (more than labels).  You are welcome to just submit issues without worrying about this, but if you are looking at a ticket and want how it relates to our plans then you might want to know our system.</p>
+<p>Generally we have three running milestones:</p>
+<ul>
+<li><p>“Release X” or “Beta 1039”, etc: something that represents our planned work for the current iteration.  We don’t generally complete everything we plan for in an iteration (i.e., we err on the side of including stuff in a milestone), so if something is important to you then you might still want to note this in a ticket.</p>
+</li>
+<li><p><a href="https://github.com/mozilla/togetherjs/issues?milestone=17&amp;state=open">Next Tasks</a>: this is a long-standing milestone that represents tasks we want to do soon, but not in the current milestone.  Typically when planning the next iteration we’ll look through this milestone and pick out issues.  If something in this milestone is a priority for you, please note that in a comment on the ticket so we can understand your needs.</p>
+</li>
+<li><p><a href="https://github.com/mozilla/togetherjs/issues?milestone=23&amp;state=open">Blue Sky</a>: another long-standing milestone, this represents stuff we’d like to do but don’t have any plans to do any time soon.  If you are looking to contribute this is an excellent place to look for ideas.  And if it’s something you think would be helpful to you, a comment would be good — especially one that outlines a use case.</p>
+</li>
+<li><p><a href="https://github.com/mozilla/togetherjs/issues?milestone=none&amp;page=1&amp;state=open">Issues with no milestone</a>: these are issues that haven’t been triaged.  We try to assign milestones every week to these issues.  If we don’t then probably we are caught up in something we need to focus on over a short period, or we’re just all out on vacation or something.</p>
+</li>
+</ul>
+
+    </div>
+  </section>
+
+
+
+
+        <hr>
+
+        <footer>
+
+          <section class="row" id="footer">
+            <div class="col-xs-12 col-sm-3 text-left">
+              <p><a href="https://mozillalabs.com/en-US/" target="_blank"><img src="../images/footer-mozilla-labs.png"></a></p>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+              <ul class="list-unstyled text-left">
+                <li class=""><a href=".././" class="">Overview</a></li>
+                <li><a href=".././docs/" target="_blank">Docs</a></li>
+                <li class=""><a href="https://github.com/mozilla/togetherjs" target="_blank">GitHub</a></li>
+                <li class=""><a href="mailto:togetherjs@mozilla.com" target="_blank">Contact</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+              <ul class="list-unstyled text-left">
+                <li class=""><a href="https://mozillalabs.com/en-US/togetherjs/" target="_blank">About</a></li>
+                <li><a href=".././docs/contributing.html">Contributing</a></li>
+                <li><a href="../source/">Source Code</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+                <li class=""><a href="https://twitter.com/togetherjs" target="_blank">Twitter</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+              <ul class="list-unstyled text-left">
+                <li class=""><a href="https://www.mozilla.org/privacy/websites/" target="_blank">Privacy Policy</a></li>
+                <li class=""><a href="https://www.mozilla.org/about/legal/" target="_blank">Legal Notices</a></li>
+                <li class=""><a href="https://www.mozilla.org/legal/fraud-report/" target="_blank">Report Trademark Abuses</a></li>
+                <li class="ph-credit">Thanks to Yuan Wang for the cover photo!</li>
+              </ul>
+            </div>
+          </section>
+        </footer>
+      </section>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+<title>HTML iframe sandbox Attribute</title>
+
+<meta charset="utf-8">
+</head>
+<body>
+<iframe src="asset://garrysmod/data/test.dat" id="eek" sandbox="allow-scripts"></iframe>
+<script>
+console.log("goodstart");
+document.getElementById('eek').onload = function(){
+    console.log('iframe loaded');
+};
+
+function receiveMessage(event)
+{
+    console.log("Origin: "+event.origin+" Data: "+event.data);  
+}
+window.addEventListener("message", receiveMessage, false);
+console.log("goodend");
+
+</script>
+</body>
+</html>

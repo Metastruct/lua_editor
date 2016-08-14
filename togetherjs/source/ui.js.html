@@ -1,0 +1,2604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>
+      Mozilla Labs : TogetherJS
+    </title>
+    <meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="description" content="Real time collaboration features for your website or app.">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../images/fav-icon.ico">
+
+    <!-- use this block to set togetherjs config -->
+    
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/parallax.js"></script>
+    <script src="../js/custom.js"></script>
+    <script src="../js/scrollTo.js"></script>
+    <script src="../js/scrollspy.js"></script>
+    <script src="../js/waypoints.min.js"></script>
+    <script src="../js/how-animations.js"></script>
+    <script src="../togetherjs.js"></script>
+
+    <!-- retina library -->
+    <script src="../js/retina.js"></script>
+
+    <script src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-35433268-28']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/jumbotron.css" rel="stylesheet">
+    <link href="../css/carousel.css" rel="stylesheet">
+    <link href="../css/grid.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet" href="../css/docco.css">
+  <script src="../js/source-code.js"></script>
+
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
+      </script>
+    <![endif]-->
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-35433268-43', 'togetherjs.com');
+    ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body >
+    <div class="navbar main-header" id="main-navbar">
+
+      <!-- Tabzilla -->
+      <a href="https://www.mozilla.org/" id="tabzilla">mozilla</a>
+
+      <!-- start container -->
+      <div class="container navbox">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand main-logo" href=".././"></a>
+          <a class="navbar-brand masthead-title" href=".././">TogetherJS</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right main-nav">
+            <li><a href=".././"  >Overview</a></li>
+            <li><a class="documentationActive"href=".././docs/"  >Documentation</a></li>
+            <li><a href="https://github.com/mozilla/togetherjs" target="_blank">Github</a></li>
+            <li><a href="mailto:togetherjs@mozilla.com">Contact</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+
+      </div>
+    </div>
+
+
+    
+
+<div class="container">
+
+    <section class="row" id="sourcecode">
+      <div class="col-md-3" id="source-toc">
+        <div class="panel" role="complementary" data-spy="affix" data-offset-top="200" id="sidenav">
+          <div class="panel-heading">Source Code</div>
+          <ul class="nav" id="sectionmenu">
+            
+              <li><a href="analytics.js.html">analytics</a></li>
+            
+              <li><a href="channels.js.html">channels</a></li>
+            
+              <li><a href="chat.js.html">chat</a></li>
+            
+              <li><a href="console.js.html">console</a></li>
+            
+              <li><a href="cursor.js.html">cursor</a></li>
+            
+              <li><a href="elementFinder.js.html">elementFinder</a></li>
+            
+              <li><a href="eventMaker.js.html">eventMaker</a></li>
+            
+              <li><a href="forms.js.html">forms</a></li>
+            
+              <li><a href="jqueryPlugins.js.html">jqueryPlugins</a></li>
+            
+              <li><a href="linkify.js.html">linkify</a></li>
+            
+              <li><a href="ot.js.html">ot</a></li>
+            
+              <li><a href="peers.js.html">peers</a></li>
+            
+              <li><a href="playback.js.html">playback</a></li>
+            
+              <li><a href="randomutil.js.html">randomutil</a></li>
+            
+              <li><a href="recorder.js.html">recorder</a></li>
+            
+              <li><a href="session.js.html">session</a></li>
+            
+              <li><a href="startup.js.html">startup</a></li>
+            
+              <li><a href="storage.js.html">storage</a></li>
+            
+              <li><a href="templates-localized.js.html">templates-localized</a></li>
+            
+              <li><a href="templates.js.html">templates</a></li>
+            
+              <li><a href="templating.js.html">templating</a></li>
+            
+              <li><a href="togetherjs.js.html">togetherjs</a></li>
+            
+              <li><a href="ui.js.html">ui</a></li>
+            
+              <li><a href="util.js.html">util</a></li>
+            
+              <li><a href="videos.js.html">videos</a></li>
+            
+              <li><a href="visibilityApi.js.html">visibilityApi</a></li>
+            
+              <li><a href="walkthrough.js.html">walkthrough</a></li>
+            
+              <li><a href="webrtc.js.html">webrtc</a></li>
+            
+              <li><a href="who.js.html">who</a></li>
+            
+              <li><a href="windowing.js.html">windowing</a></li>
+            
+              <li><a href="youtubeVideos.js.html">youtubeVideos</a></li>
+            
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-9" id="source-content">
+        <h1>ui.js</h1>
+        
+          <h4><p>This has most of the UI, meaning everything involving HTML, and reacting to that interface.</p>
+</h4>
+        
+
+        <div class="small"><a href="https://github.com/mozilla/togetherjs/blob/develop/togetherjs/ui.js">See this file on Github</a></div>
+
+        <ul class="sections">
+          
+            <li id="section-0">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-0">&#182;</a>
+                </div>
+                
+              </div>
+              
+                <div class="content"><div class='highlight'><pre><span class="comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */</span>
+
+define([<span class="string">"require"</span>, <span class="string">"jquery"</span>, <span class="string">"util"</span>, <span class="string">"session"</span>, <span class="string">"templates"</span>, <span class="string">"templating"</span>, <span class="string">"linkify"</span>, <span class="string">"peers"</span>, <span class="string">"windowing"</span>, <span class="string">"tinycolor"</span>, <span class="string">"elementFinder"</span>, <span class="string">"visibilityApi"</span>], <span class="function"><span class="keyword">function</span> <span class="params">(require, $, util, session, templates, templating, linkify, peers, windowing, tinycolor, elementFinder, visibilityApi)</span> {</span>
+  <span class="keyword">var</span> ui = util.Module(<span class="string">'ui'</span>);
+  <span class="keyword">var</span> assert = util.assert;
+  <span class="keyword">var</span> AssertionError = util.AssertionError;
+  <span class="keyword">var</span> chat;
+  <span class="keyword">var</span> $window = $(window);</pre></div></div>
+              
+            </li>
+          
+            <li id="section-1">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-1">&#182;</a>
+                </div>
+                <p>This is also in togetherjs.less, as @button-height:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> BUTTON_HEIGHT = <span class="number">60</span> + <span class="number">1</span>; <span class="comment">// 60 is button height, 1 is border</span></pre></div></div>
+              
+            </li>
+          
+            <li id="section-2">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-2">&#182;</a>
+                </div>
+                <p>chat TextArea</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> TEXTAREA_LINE_HEIGHT = <span class="number">20</span>; <span class="comment">// in pixels</span>
+  <span class="keyword">var</span> TEXTAREA_MAX_LINES = <span class="number">5</span>;</pre></div></div>
+              
+            </li>
+          
+            <li id="section-3">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-3">&#182;</a>
+                </div>
+                <p>This is also in togetherjs.less, under .togetherjs-animated</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> ANIMATION_DURATION = <span class="number">1000</span>;</pre></div></div>
+              
+            </li>
+          
+            <li id="section-4">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-4">&#182;</a>
+                </div>
+                <p>Time the new user window sticks around until it fades away:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> NEW_USER_FADE_TIMEOUT = <span class="number">5000</span>;</pre></div></div>
+              
+            </li>
+          
+            <li id="section-5">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-5">&#182;</a>
+                </div>
+                <p>This is set when an animation will keep the UI from being ready
+(until this time):</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> finishedAt = <span class="literal">null</span>;</pre></div></div>
+              
+            </li>
+          
+            <li id="section-6">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-6">&#182;</a>
+                </div>
+                <p>Time in milliseconds for the dock to animate out:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> DOCK_ANIMATION_TIME = <span class="number">300</span>;</pre></div></div>
+              
+            </li>
+          
+            <li id="section-7">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-7">&#182;</a>
+                </div>
+                <p>If two chat messages come from the same person in this time
+(milliseconds) then they are collapsed into one message:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> COLLAPSE_MESSAGE_LIMIT = <span class="number">5000</span>;
+
+  <span class="keyword">var</span> COLORS = [
+    <span class="string">"#8A2BE2"</span>, <span class="string">"#7FFF00"</span>, <span class="string">"#DC143C"</span>, <span class="string">"#00FFFF"</span>, <span class="string">"#8FBC8F"</span>, <span class="string">"#FF8C00"</span>, <span class="string">"#FF00FF"</span>,
+    <span class="string">"#FFD700"</span>, <span class="string">"#F08080"</span>, <span class="string">"#90EE90"</span>, <span class="string">"#FF6347"</span>];</pre></div></div>
+              
+            </li>
+          
+            <li id="section-8">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-8">&#182;</a>
+                </div>
+                <p>This would be a circular import, but we just need the chat module sometime
+after everything is loaded, and this is sure to complete by that time:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>  require([<span class="string">"chat"</span>], <span class="function"><span class="keyword">function</span> <span class="params">(c)</span> {</span>
+    chat = c;
+  });
+
+  <span class="comment">/* Displays some toggleable element; toggleable elements have a
+     data-toggles attribute that indicates what other elements should
+     be hidden when this element is shown. */</span>
+  ui.displayToggle = <span class="function"><span class="keyword">function</span> <span class="params">(el)</span> {</span>
+    el = $(el);
+    assert(el.length, <span class="string">"No element"</span>, arguments[<span class="number">0</span>]);
+    <span class="keyword">var</span> other = $(el.attr(<span class="string">"data-toggles"</span>));
+    assert(other.length, <span class="string">"Cannot toggle"</span>, el[<span class="number">0</span>], <span class="string">"selector"</span>, other.selector);
+    other.hide();
+    el.show();
+  };
+
+  <span class="function"><span class="keyword">function</span> <span class="title">panelPosition</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> iface = $(<span class="string">"#togetherjs-dock"</span>);
+    <span class="keyword">if</span> (iface.hasClass(<span class="string">"togetherjs-dock-right"</span>)) {
+      <span class="keyword">return</span> <span class="string">"right"</span>;
+    } <span class="keyword">else</span> <span class="keyword">if</span> (iface.hasClass(<span class="string">"togetherjs-dock-left"</span>)) {
+      <span class="keyword">return</span> <span class="string">"left"</span>;
+    } <span class="keyword">else</span> <span class="keyword">if</span> (iface.hasClass(<span class="string">"togetherjs-dock-bottom"</span>)) {
+      <span class="keyword">return</span> <span class="string">"bottom"</span>;
+    } <span class="keyword">else</span> {
+      <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError(<span class="string">"#togetherjs-dock doesn't have positioning class"</span>);
+    }
+  }
+
+  ui.container = <span class="literal">null</span>;</pre></div></div>
+              
+            </li>
+          
+            <li id="section-9">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-9">&#182;</a>
+                </div>
+                <p>This is used for some signalling when ui.prepareUI and/or
+ui.activateUI is called before the DOM is fully loaded:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>  <span class="keyword">var</span> deferringPrepareUI = <span class="literal">null</span>;
+
+  <span class="function"><span class="keyword">function</span> <span class="title">deferForContainer</span><span class="params">(func)</span> {</span>
+    <span class="comment">/* Defers any calls to func() until after ui.container is set
+       Function cannot have a return value (as sometimes the call will
+       become async).  Use like:
+
+       method: deferForContainer(function (args) {...})
+       */</span>
+    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      <span class="keyword">if</span> (ui.container) {
+        func.apply(<span class="keyword">this</span>, arguments);
+      }
+      <span class="keyword">var</span> self = <span class="keyword">this</span>;
+      <span class="keyword">var</span> args = Array.prototype.slice.call(arguments);
+      session.once(<span class="string">"ui-ready"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        func.apply(self, args);
+      });
+    };
+  }</pre></div></div>
+              
+            </li>
+          
+            <li id="section-10">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-10">&#182;</a>
+                </div>
+                <p>This is called before activateUI; it doesn’t bind anything, but does display
+the dock
+FIXME: because this module has lots of requirements we can’t do
+this before those requirements are loaded.  Maybe worth splitting
+this out?  OTOH, in production we should have all the files
+combined so there’s not much problem loading those modules.</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>  ui.prepareUI = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">if</span> (! (document.readyState == <span class="string">"complete"</span> || document.readyState == <span class="string">"interactive"</span>)) {</pre></div></div>
+              
+            </li>
+          
+            <li id="section-11">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-11">&#182;</a>
+                </div>
+                <p>Too soon!  Wait a sec…</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      deferringPrepareUI = <span class="string">"deferring"</span>;
+      document.addEventListener(<span class="string">"DOMContentLoaded"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        <span class="keyword">var</span> d = deferringPrepareUI;
+        deferringPrepareUI = <span class="literal">null</span>;
+        ui.prepareUI();</pre></div></div>
+              
+            </li>
+          
+            <li id="section-12">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-12">&#182;</a>
+                </div>
+                <p>This happens when ui.activateUI is called before the document has been
+loaded:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>        <span class="keyword">if</span> (d == <span class="string">"activate"</span>) {
+          ui.activateUI();
+        }
+      });
+      <span class="keyword">return</span>;
+    }
+    <span class="keyword">var</span> container = ui.container = $(templates(<span class="string">"interface"</span>));
+    assert(container.length);
+    $(<span class="string">"body"</span>).append(container);
+    fixupAvatars(container);
+    <span class="keyword">if</span> (session.firstRun &amp;&amp; TogetherJS.startTarget) {</pre></div></div>
+              
+            </li>
+          
+            <li id="section-13">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-13">&#182;</a>
+                </div>
+                <p>Time at which the UI will be fully ready:
+(We have to do this because the offset won’t be quite right
+until the animation finishes - attempts to calculate the
+offset without taking into account CSS transforms have so far
+failed.)</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      <span class="keyword">var</span> timeoutSeconds = DOCK_ANIMATION_TIME / <span class="number">1000</span>;
+      finishedAt = Date.now() + DOCK_ANIMATION_TIME + <span class="number">50</span>;
+      setTimeout(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        finishedAt = Date.now() + DOCK_ANIMATION_TIME + <span class="number">40</span>;
+        <span class="keyword">var</span> iface = container.find(<span class="string">"#togetherjs-dock"</span>);
+        <span class="keyword">var</span> start = iface.offset();
+        <span class="keyword">var</span> pos = $(TogetherJS.startTarget).offset();
+        pos.top = Math.floor(pos.top - start.top);
+        pos.left = Math.floor(pos.left - start.left);
+        <span class="keyword">var</span> translate = <span class="string">"translate("</span> + pos.left + <span class="string">"px, "</span> + pos.top + <span class="string">"px)"</span>;
+        iface.css({
+          MozTransform: translate,
+          WebkitTransform: translate,
+          transform: translate,
+          opacity: <span class="string">"0.0"</span>
+        });
+        setTimeout(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span></pre></div></div>
+              
+            </li>
+          
+            <li id="section-14">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-14">&#182;</a>
+                </div>
+                <p>We keep recalculating because the setTimeout times aren’t always so accurate:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>          finishedAt = Date.now() + DOCK_ANIMATION_TIME + <span class="number">20</span>;
+          <span class="keyword">var</span> transition = <span class="string">"transform "</span> + timeoutSeconds + <span class="string">"s ease-out, "</span>;
+          transition += <span class="string">"opacity "</span> + timeoutSeconds + <span class="string">"s ease-out"</span>;
+          iface.css({
+            opacity: <span class="string">"1.0"</span>,
+            MozTransition: <span class="string">"-moz-"</span> + transition,
+            MozTransform: <span class="string">"translate(0, 0)"</span>,
+            WebkitTransition: <span class="string">"-webkit-"</span> + transition,
+            WebkitTransform: <span class="string">"translate(0, 0)"</span>,
+            transition: transition,
+            transform: <span class="string">"translate(0, 0)"</span>
+          });
+          setTimeout(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+            finishedAt = <span class="literal">null</span>;
+            iface.attr(<span class="string">"style"</span>, <span class="string">""</span>);
+          }, <span class="number">510</span>);
+        }, <span class="number">5</span>);
+      }, <span class="number">5</span>);
+    }
+    <span class="keyword">if</span> (TogetherJS.startTarget) {
+      <span class="keyword">var</span> el = $(TogetherJS.startTarget);
+      <span class="keyword">var</span> text = el.text().toLowerCase().replace(<span class="regexp">/\s+/g</span>, <span class="string">" "</span>);
+      text = text.replace(<span class="regexp">/^\s*/</span>, <span class="string">""</span>).replace(<span class="regexp">/\s*$/</span>, <span class="string">""</span>);
+      <span class="keyword">if</span> (text == <span class="string">"start togetherjs"</span>) {
+        el.attr(<span class="string">"data-end-togetherjs-html"</span>, <span class="string">"End TogetherJS"</span>);
+      }
+      <span class="keyword">if</span> (el.attr(<span class="string">"data-end-togetherjs-html"</span>)) {
+        el.attr(<span class="string">"data-start-togetherjs-html"</span>, el.html());
+        el.html(el.attr(<span class="string">"data-end-togetherjs-html"</span>));
+      }
+      el.addClass(<span class="string">"togetherjs-started"</span>);
+    }
+    ui.container.find(<span class="string">".togetherjs-window &gt; header, .togetherjs-modal &gt; header"</span>).each(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      $(<span class="keyword">this</span>).append($(<span class="string">'&lt;button class="togetherjs-close"&gt;&lt;/button&gt;'</span>));
+    });
+
+    TogetherJS.config.track(<span class="string">"disableWebRTC"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(hide, previous)</span> {</span>
+      <span class="keyword">if</span> (hide &amp;&amp; ! previous) {
+        ui.container.find(<span class="string">"#togetherjs-audio-button"</span>).hide();
+        adjustDockSize(-<span class="number">1</span>);
+      } <span class="keyword">else</span> <span class="keyword">if</span> ((! hide) &amp;&amp; previous) {
+        ui.container.find(<span class="string">"#togetherjs-audio-button"</span>).show();
+        adjustDockSize(<span class="number">1</span>);
+      }
+    });
+
+  };</pre></div></div>
+              
+            </li>
+          
+            <li id="section-15">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-15">&#182;</a>
+                </div>
+                <p>After prepareUI, this actually makes the interface live.  We have
+to do this later because we call prepareUI when many components
+aren’t initialized, so we don’t even want the user to be able to
+interact with the interface.  But activateUI is called once
+everything is loaded and ready for interaction.</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>  ui.activateUI = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">if</span> (deferringPrepareUI) {
+      console.warn(<span class="string">"ui.activateUI called before document is ready; waiting..."</span>);
+      deferringPrepareUI = <span class="string">"activate"</span>;
+      <span class="keyword">return</span>;
+    }
+    <span class="keyword">if</span> (! ui.container) {
+      ui.prepareUI();
+    }
+    <span class="keyword">var</span> container = ui.container;</pre></div></div>
+              
+            </li>
+          
+            <li id="section-16">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-16">&#182;</a>
+                </div>
+                <p>create the overlay</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>    <span class="keyword">if</span>($.browser.mobile) {</pre></div></div>
+              
+            </li>
+          
+            <li id="section-17">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-17">&#182;</a>
+                </div>
+                <p>$(“body”).append( “\x3cdiv class=’overlay’ style=’position: absolute; top: 0; left: 0; background-color: rgba(0,0,0,0); width: 120%; height: 100%; z-index: 1000; margin: -10px’&gt;\x3c/div&gt;” );</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>    }</pre></div></div>
+              
+            </li>
+          
+            <li id="section-18">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-18">&#182;</a>
+                </div>
+                <p>The share link:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>    ui.prepareShareLink(container);
+    container.find(<span class="string">"input.togetherjs-share-link"</span>).on(<span class="string">"keydown"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(event)</span> {</span>
+      <span class="keyword">if</span> (event.which == <span class="number">27</span>) {
+        windowing.hide(<span class="string">"#togetherjs-share"</span>);
+        <span class="keyword">return</span> <span class="literal">false</span>;
+      }
+      <span class="keyword">return</span> <span class="literal">undefined</span>;
+    });
+    session.on(<span class="string">"shareId"</span>, updateShareLink);</pre></div></div>
+              
+            </li>
+          
+            <li id="section-19">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-19">&#182;</a>
+                </div>
+                <p>The chat input element:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>    <span class="keyword">var</span> input = container.find(<span class="string">"#togetherjs-chat-input"</span>);
+    input.bind(<span class="string">"keydown"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(event)</span> {</span>
+      <span class="keyword">if</span> (event.which == <span class="number">13</span> &amp;&amp; !event.shiftKey) { <span class="comment">// Enter without Shift pressed</span>
+        submitChat();
+        <span class="keyword">return</span> <span class="literal">false</span>;
+      }
+      <span class="keyword">if</span> (event.which == <span class="number">27</span>) { <span class="comment">// Escape</span>
+        windowing.hide(<span class="string">"#togetherjs-chat"</span>);
+        <span class="keyword">return</span> <span class="literal">false</span>;
+      }
+    });
+
+    <span class="function"><span class="keyword">function</span> <span class="title">submitChat</span><span class="params">()</span> {</span>
+      <span class="keyword">var</span> val = input.val();
+      <span class="keyword">if</span> ($.trim(val)) {
+        input.val(<span class="string">""</span>);</pre></div></div>
+              
+            </li>
+          
+            <li id="section-20">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-20">&#182;</a>
+                </div>
+                <p>triggering the event manually to avoid the addition of newline character to the textarea:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>        input.trigger(<span class="string">"input"</span>).trigger(<span class="string">"propertychange"</span>);
+        chat.submit(val);
+      }
+    }</pre></div></div>
+              
+            </li>
+          
+            <li id="section-21">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-21">&#182;</a>
+                </div>
+                <p>auto-resize textarea:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>    input.on(<span class="string">"input propertychange"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>);
+      <span class="keyword">var</span> actualHeight = $<span class="keyword">this</span>.height();</pre></div></div>
+              
+            </li>
+          
+            <li id="section-22">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-22">&#182;</a>
+                </div>
+                <p>reset the height of textarea to remove trailing empty space (used for shrinking):</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      $<span class="keyword">this</span>.height(TEXTAREA_LINE_HEIGHT);
+      <span class="keyword">this</span>.scrollTop = <span class="number">0</span>;</pre></div></div>
+              
+            </li>
+          
+            <li id="section-23">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-23">&#182;</a>
+                </div>
+                <p>scroll to bottom:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      <span class="keyword">this</span>.scrollTop = <span class="number">9999</span>;
+      <span class="keyword">var</span> newHeight = <span class="keyword">this</span>.scrollTop + $<span class="keyword">this</span>.height();
+      <span class="keyword">var</span> maxHeight = TEXTAREA_MAX_LINES * TEXTAREA_LINE_HEIGHT;
+      <span class="keyword">if</span> (newHeight &gt; maxHeight) {
+        newHeight = maxHeight;
+        <span class="keyword">this</span>.style.overflowY = <span class="string">"scroll"</span>;
+      } <span class="keyword">else</span> {
+        <span class="keyword">this</span>.style.overflowY = <span class="string">"hidden"</span>;
+      }
+      <span class="keyword">this</span>.style.height = newHeight + <span class="string">"px"</span>;
+      <span class="keyword">var</span> diff = newHeight - actualHeight;
+      $(<span class="string">"#togetherjs-chat-input-box"</span>).height($(<span class="string">"#togetherjs-chat-input-box"</span>).height() + diff);
+      $(<span class="string">"#togetherjs-chat-messages"</span>).height($(<span class="string">"#togetherjs-chat-messages"</span>).height() - diff);
+      <span class="keyword">return</span> <span class="literal">false</span>;
+    });
+
+    util.testExpose({submitChat: submitChat});</pre></div></div>
+              
+            </li>
+          
+            <li id="section-24">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-24">&#182;</a>
+                </div>
+                <p>Moving the window:
+FIXME: this should probably be stickier, and not just move the window around
+so abruptly</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>    <span class="keyword">var</span> anchor = container.find(<span class="string">"#togetherjs-dock-anchor"</span>);
+    assert(anchor.length);</pre></div></div>
+              
+            </li>
+          
+            <li id="section-25">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-25">&#182;</a>
+                </div>
+                <p>FIXME: This is in place to temporarily disable dock dragging:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>    anchor = container.find(<span class="string">"#togetherjs-dock-anchor-disabled"</span>);
+    anchor.mousedown(<span class="function"><span class="keyword">function</span> <span class="params">(event)</span> {</span>
+      <span class="keyword">var</span> iface = $(<span class="string">"#togetherjs-dock"</span>);</pre></div></div>
+              
+            </li>
+          
+            <li id="section-26">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-26">&#182;</a>
+                </div>
+                <p>FIXME: switch to .offset() and pageX/Y</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      <span class="keyword">var</span> startPos = panelPosition();
+      <span class="function"><span class="keyword">function</span> <span class="title">selectoff</span><span class="params">()</span> {</span>
+        <span class="keyword">return</span> <span class="literal">false</span>;
+      }
+      <span class="function"><span class="keyword">function</span> <span class="title">mousemove</span><span class="params">(event2)</span> {</span>
+        <span class="keyword">var</span> fromRight = $window.width() + window.pageXOffset - event2.pageX;
+        <span class="keyword">var</span> fromLeft = event2.pageX - window.pageXOffset;
+        <span class="keyword">var</span> fromBottom = $window.height() + window.pageYOffset - event2.pageY;</pre></div></div>
+              
+            </li>
+          
+            <li id="section-27">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-27">&#182;</a>
+                </div>
+                <p>FIXME: this is to temporarily disable the bottom view:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>        fromBottom = <span class="number">10000</span>;
+
+        <span class="keyword">var</span> pos;
+        <span class="keyword">if</span> (fromLeft &lt; fromRight &amp;&amp; fromLeft &lt; fromBottom) {
+          pos = <span class="string">"left"</span>;
+        } <span class="keyword">else</span> <span class="keyword">if</span> (fromRight &lt; fromLeft &amp;&amp; fromRight &lt; fromBottom) {
+          pos = <span class="string">"right"</span>;
+        } <span class="keyword">else</span> {
+          pos = <span class="string">"bottom"</span>;
+        }
+        iface.removeClass(<span class="string">"togetherjs-dock-left"</span>);
+        iface.removeClass(<span class="string">"togetherjs-dock-right"</span>);
+        iface.removeClass(<span class="string">"togetherjs-dock-bottom"</span>);
+        iface.addClass(<span class="string">"togetherjs-dock-"</span> + pos);
+        <span class="keyword">if</span> (startPos &amp;&amp; pos != startPos) {
+          windowing.hide();
+          startPos = <span class="literal">null</span>;
+        }
+      }
+      $(document).bind(<span class="string">"mousemove"</span>, mousemove);</pre></div></div>
+              
+            </li>
+          
+            <li id="section-28">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-28">&#182;</a>
+                </div>
+                <p>If you don’t turn selection off it will still select text, and show a
+text selection cursor:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      $(document).bind(<span class="string">"selectstart"</span>, selectoff);</pre></div></div>
+              
+            </li>
+          
+            <li id="section-29">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-29">&#182;</a>
+                </div>
+                <p>FIXME: it seems like sometimes we lose the mouseup event, and it’s as though
+the mouse is stuck down:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      $(document).one(<span class="string">"mouseup"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        $(document).unbind(<span class="string">"mousemove"</span>, mousemove);
+        $(document).unbind(<span class="string">"selectstart"</span>, selectoff);
+      });
+      <span class="keyword">return</span> <span class="literal">false</span>;
+    });
+
+    <span class="function"><span class="keyword">function</span> <span class="title">openDock</span><span class="params">()</span> {</span>
+      $(<span class="string">'.togetherjs-window'</span>).animate({
+        opacity: <span class="number">1</span>
+      });
+      $(<span class="string">'#togetherjs-dock-participants'</span>).animate({
+        opacity: <span class="number">1</span>
+      });
+      $(<span class="string">'#togetherjs-dock #togetherjs-buttons'</span>).animate({
+        opacity: <span class="number">1</span>
+      });</pre></div></div>
+              
+            </li>
+          
+            <li id="section-30">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-30">&#182;</a>
+                </div>
+                <p>for iphone</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      <span class="keyword">if</span>($(window).width() &lt; <span class="number">480</span>) {
+        $(<span class="string">'.togetherjs-dock-right'</span>).animate({
+          width: <span class="string">"204px"</span>
+        }, {
+          duration:<span class="number">60</span>, easing:<span class="string">"linear"</span>
+        });
+      }</pre></div></div>
+              
+            </li>
+          
+            <li id="section-31">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-31">&#182;</a>
+                </div>
+                <p>for ipad</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      <span class="keyword">else</span> {
+        $(<span class="string">'.togetherjs-dock-right'</span>).animate({
+          width: <span class="string">"27%"</span>
+        }, {
+          duration:<span class="number">60</span>, easing:<span class="string">"linear"</span>
+        });
+      }</pre></div></div>
+              
+            </li>
+          
+            <li id="section-32">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-32">&#182;</a>
+                </div>
+                <p>add bg overlay
+$(“body”).append( “\x3cdiv class=’overlay’ style=’position: absolute; top: 0; left: -2px; background-color: rgba(0,0,0,0.5); width: 200%; height: 400%; z-index: 1000; margin: 0px;’&gt;\x3c/div&gt;” );</p>
+
+              </div>
+              
+              
+            </li>
+          
+            <li id="section-33">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-33">&#182;</a>
+                </div>
+                <p>disable vertical scrolling
+$(“body”).css({
+  “position”: “fixed”,
+  top: 0,
+  left: 0
+});</p>
+
+              </div>
+              
+              
+            </li>
+          
+            <li id="section-34">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-34">&#182;</a>
+                </div>
+                <p>replace the anchor icon</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      <span class="keyword">var</span> src = <span class="string">"/togetherjs/images/togetherjs-logo-close.png"</span>;
+      $(<span class="string">"#togetherjs-dock-anchor #togetherjs-dock-anchor-horizontal img"</span>).attr(<span class="string">"src"</span>, src);
+    }
+
+    <span class="function"><span class="keyword">function</span> <span class="title">closeDock</span><span class="params">()</span> {</span></pre></div></div>
+              
+            </li>
+          
+            <li id="section-35">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-35">&#182;</a>
+                </div>
+                <p>enable vertical scrolling</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      $(<span class="string">"body"</span>).css({
+        <span class="string">"position"</span>: <span class="string">""</span>,
+        top: <span class="string">""</span>,
+        left: <span class="string">""</span>
+      });</pre></div></div>
+              
+            </li>
+          
+            <li id="section-36">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-36">&#182;</a>
+                </div>
+                <p>replace the anchor icon</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      <span class="keyword">var</span> src = <span class="string">"/togetherjs/images/togetherjs-logo-open.png"</span>;
+      $(<span class="string">"#togetherjs-dock-anchor #togetherjs-dock-anchor-horizontal img"</span>).attr(<span class="string">"src"</span>, src);
+
+      $(<span class="string">'.togetherjs-window'</span>).animate({
+        opacity: <span class="number">0</span>
+      });
+      $(<span class="string">'#togetherjs-dock-participants'</span>).animate({
+        opacity: <span class="number">0</span>
+      });
+      $(<span class="string">'#togetherjs-dock #togetherjs-buttons'</span>).animate({
+        opacity: <span class="number">0</span>
+      });
+      $(<span class="string">'.togetherjs-dock-right'</span>).animate({
+        width: <span class="string">"40px"</span>
+      }, {
+        duration:<span class="number">60</span>, easing:<span class="string">"linear"</span>
+      });</pre></div></div>
+              
+            </li>
+          
+            <li id="section-37">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-37">&#182;</a>
+                </div>
+                <p>remove bg overlay
+$(“.overlay”).remove();</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>    }</pre></div></div>
+              
+            </li>
+          
+            <li id="section-38">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-38">&#182;</a>
+                </div>
+                <p>Setting the anchor button + dock mobile actions</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>    <span class="keyword">if</span>($.browser.mobile) {</pre></div></div>
+              
+            </li>
+          
+            <li id="section-39">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-39">&#182;</a>
+                </div>
+                <p>toggle the audio button</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      $(<span class="string">"#togetherjs-audio-button"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        windowing.toggle(<span class="string">"#togetherjs-rtc-not-supported"</span>);
+      });</pre></div></div>
+              
+            </li>
+          
+            <li id="section-40">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-40">&#182;</a>
+                </div>
+                <p>toggle the profile button</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      $(<span class="string">"#togetherjs-profile-button"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        windowing.toggle(<span class="string">"#togetherjs-menu-window"</span>);
+      });</pre></div></div>
+              
+            </li>
+          
+            <li id="section-41">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-41">&#182;</a>
+                </div>
+                <p>$(“body”).append( “\x3cdiv class=’overlay’ style=’position: absolute; top: 0; left: -2px; background-color: rgba(0,0,0,0.5); width: 200%; height: 400%; z-index: 1000; margin: 0px’&gt;\x3c/div&gt;” );</p>
+
+              </div>
+              
+              
+            </li>
+          
+            <li id="section-42">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-42">&#182;</a>
+                </div>
+                <p>disable vertical scrolling
+$(“body”).css({
+  “position”: “fixed”,
+  top: 0,
+  left: 0
+});</p>
+
+              </div>
+              
+              
+            </li>
+          
+            <li id="section-43">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-43">&#182;</a>
+                </div>
+                <p>replace the anchor icon</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      <span class="keyword">var</span> src = <span class="string">"/togetherjs/images/togetherjs-logo-close.png"</span>;
+      $(<span class="string">"#togetherjs-dock-anchor #togetherjs-dock-anchor-horizontal img"</span>).attr(<span class="string">"src"</span>, src);
+
+      $(<span class="string">"#togetherjs-dock-anchor"</span>).toggle(<span class="keyword">function</span>() {
+          closeDock();
+        },<span class="keyword">function</span>(){
+          openDock();
+      });
+    }
+
+    $(<span class="string">"#togetherjs-share-button"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      windowing.toggle(<span class="string">"#togetherjs-share"</span>);
+    });
+
+    $(<span class="string">"#togetherjs-profile-button"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">(event)</span> {</span>
+      <span class="keyword">if</span> ($.browser.mobile) {
+        windowing.show(<span class="string">"#togetherjs-menu-window"</span>);
+        <span class="keyword">return</span> <span class="literal">false</span>;
+      }
+      toggleMenu();
+      event.stopPropagation();
+      <span class="keyword">return</span> <span class="literal">false</span>;
+    });
+
+    $(<span class="string">"#togetherjs-menu-feedback, #togetherjs-menu-feedback-button"</span>).click(<span class="keyword">function</span>(){
+      windowing.hide();
+      hideMenu();
+      windowing.show(<span class="string">"#togetherjs-feedback-form"</span>);
+    });
+
+    $(<span class="string">"#togetherjs-menu-help, #togetherjs-menu-help-button"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      windowing.hide();
+      hideMenu();
+      require([<span class="string">"walkthrough"</span>], <span class="function"><span class="keyword">function</span> <span class="params">(walkthrough)</span> {</span>
+        windowing.hide();
+        walkthrough.start(<span class="literal">false</span>);
+      });
+    });
+
+    $(<span class="string">"#togetherjs-menu-update-name"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      <span class="keyword">var</span> input = $(<span class="string">"#togetherjs-menu .togetherjs-self-name"</span>);
+      input.css({
+        width: $(<span class="string">"#togetherjs-menu"</span>).width() - <span class="number">32</span> + <span class="string">"px"</span>
+      });
+      ui.displayToggle(<span class="string">"#togetherjs-menu .togetherjs-self-name"</span>);
+      $(<span class="string">"#togetherjs-menu .togetherjs-self-name"</span>).focus();
+    });
+
+    $(<span class="string">"#togetherjs-menu-update-name-button"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      windowing.show(<span class="string">"#togetherjs-edit-name-window"</span>);
+      $(<span class="string">"#togetherjs-edit-name-window input"</span>).focus();
+    });
+
+    $(<span class="string">"#togetherjs-menu .togetherjs-self-name"</span>).bind(<span class="string">"keyup change"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(event)</span> {</span>
+      console.log(<span class="string">"alrighty"</span>, event);
+      <span class="keyword">if</span> (event.which == <span class="number">13</span>) {
+        ui.displayToggle(<span class="string">"#togetherjs-self-name-display"</span>);
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">var</span> val = $(<span class="string">"#togetherjs-menu .togetherjs-self-name"</span>).val();
+      console.log(<span class="string">"values!!"</span>, val);
+      <span class="keyword">if</span> (val) {
+        peers.Self.update({name: val});
+      }
+    });
+
+    $(<span class="string">"#togetherjs-menu-update-avatar, #togetherjs-menu-update-avatar-button"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      hideMenu();
+      windowing.show(<span class="string">"#togetherjs-avatar-edit"</span>);
+    });
+
+    $(<span class="string">"#togetherjs-menu-end, #togetherjs-menu-end-button"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      hideMenu();
+      windowing.show(<span class="string">"#togetherjs-confirm-end"</span>);
+    });
+
+    $(<span class="string">"#togetherjs-end-session"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      session.close();</pre></div></div>
+              
+            </li>
+          
+            <li id="section-44">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-44">&#182;</a>
+                </div>
+                <p>$(“.overlay”).remove();</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>
+    });
+
+    $(<span class="string">"#togetherjs-menu-update-color"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      <span class="keyword">var</span> picker = $(<span class="string">"#togetherjs-pick-color"</span>);
+      <span class="keyword">if</span> (picker.is(<span class="string">":visible"</span>)) {
+        picker.hide();
+        <span class="keyword">return</span>;
+      }
+      picker.show();
+      bindPicker();
+      picker.find(<span class="string">".togetherjs-swatch-active"</span>).removeClass(<span class="string">"togetherjs-swatch-active"</span>);
+      picker.find(<span class="string">".togetherjs-swatch[data-color=\""</span> + peers.Self.color + <span class="string">"\"]"</span>).addClass(<span class="string">"togetherjs-swatch-active"</span>);
+    });
+
+    $(<span class="string">"#togetherjs-pick-color"</span>).click(<span class="string">".togetherjs-swatch"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(event)</span> {</span>
+      <span class="keyword">var</span> swatch = $(event.target);
+      <span class="keyword">var</span> color = swatch.attr(<span class="string">"data-color"</span>);
+      peers.Self.update({
+        color: color
+      });
+      event.stopPropagation();
+      <span class="keyword">return</span> <span class="literal">false</span>;
+    });
+
+    $(<span class="string">"#togetherjs-pick-color"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">(event)</span> {</span>
+      $(<span class="string">"#togetherjs-pick-color"</span>).hide();
+      event.stopPropagation();
+      <span class="keyword">return</span> <span class="literal">false</span>;
+    });
+
+    COLORS.forEach(<span class="function"><span class="keyword">function</span> <span class="params">(color)</span> {</span>
+      <span class="keyword">var</span> el = templating.sub(<span class="string">"swatch"</span>);
+      el.attr(<span class="string">"data-color"</span>, color);
+      <span class="keyword">var</span> darkened = tinycolor.darken(color);
+      el.css({
+        backgroundColor: color,
+        borderColor: darkened
+      });
+      $(<span class="string">"#togetherjs-pick-color"</span>).append(el);
+    });
+
+    $(<span class="string">"#togetherjs-chat-button"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      windowing.toggle(<span class="string">"#togetherjs-chat"</span>);
+    });
+
+    session.on(<span class="string">"display-window"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(id, element)</span> {</span>
+      <span class="keyword">if</span> (id == <span class="string">"togetherjs-chat"</span>) {
+        <span class="keyword">if</span> (! $.browser.mobile) {
+          $(<span class="string">"#togetherjs-chat-input"</span>).focus();
+        }
+      } <span class="keyword">else</span> <span class="keyword">if</span> (id == <span class="string">"togetherjs-share"</span>) {
+        <span class="keyword">var</span> link = element.find(<span class="string">"input.togetherjs-share-link"</span>);
+        <span class="keyword">if</span> (link.is(<span class="string">":visible"</span>)) {
+          link.focus().select();
+        }
+      }
+    });
+
+    container.find(<span class="string">"#togetherjs-chat-notifier"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">(event)</span> {</span>
+      <span class="keyword">if</span> ($(event.target).is(<span class="string">"a"</span>) || container.is(<span class="string">".togetherjs-close"</span>)) {
+        <span class="keyword">return</span>;
+      }
+      windowing.show(<span class="string">"#togetherjs-chat"</span>);
+    });</pre></div></div>
+              
+            </li>
+          
+            <li id="section-45">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-45">&#182;</a>
+                </div>
+                <p>FIXME: Don’t think this makes sense</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>    $(<span class="string">".togetherjs header.togetherjs-title"</span>).each(<span class="function"><span class="keyword">function</span> <span class="params">(index, item)</span> {</span>
+      <span class="keyword">var</span> button = $(<span class="string">'&lt;button class="togetherjs-minimize"&gt;&lt;/button&gt;'</span>);
+      button.click(<span class="function"><span class="keyword">function</span> <span class="params">(event)</span> {</span>
+        <span class="keyword">var</span> window = button.closest(<span class="string">".togetherjs-window"</span>);
+        windowing.hide(window);
+      });
+      $(item).append(button);
+    });
+
+    $(<span class="string">"#togetherjs-avatar-done"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      ui.displayToggle(<span class="string">"#togetherjs-no-avatar-edit"</span>);
+    });
+
+    $(<span class="string">"#togetherjs-self-color"</span>).css({backgroundColor: peers.Self.color});
+
+    <span class="keyword">var</span> avatar = peers.Self.avatar;
+    <span class="keyword">if</span> (avatar) {
+      $(<span class="string">"#togetherjs-self-avatar"</span>).attr(<span class="string">"src"</span>, avatar);
+    }
+
+    <span class="keyword">var</span> starterButton = $(<span class="string">"#togetherjs-starter button"</span>);
+    starterButton.click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      windowing.show(<span class="string">"#togetherjs-about"</span>);
+    }).addClass(<span class="string">"togetherjs-running"</span>);
+    <span class="keyword">if</span> (starterButton.text() == <span class="string">"Start TogetherJS"</span>) {
+      starterButton.attr(<span class="string">"data-start-text"</span>, starterButton.text());
+      starterButton.text(<span class="string">"End TogetherJS Session"</span>);
+    }
+
+    ui.activateAvatarEdit(container, {
+      onSave: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        windowing.hide(<span class="string">"#togetherjs-avatar-edit"</span>);
+      }
+    });
+
+    TogetherJS.config.track(<span class="string">"inviteFromRoom"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(inviter, previous)</span> {</span>
+      <span class="keyword">if</span> (inviter) {
+        container.find(<span class="string">"#togetherjs-invite"</span>).show();
+      } <span class="keyword">else</span> {
+        container.find(<span class="string">"#togetherjs-invite"</span>).hide();
+      }
+    });
+
+    container.find(<span class="string">"#togetherjs-menu-refresh-invite"</span>).click(refreshInvite);
+    container.find(<span class="string">"#togetherjs-menu-invite-anyone"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      invite(<span class="literal">null</span>);
+    });</pre></div></div>
+              
+            </li>
+          
+            <li id="section-46">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-46">&#182;</a>
+                </div>
+                <p>The following lines should be at the end of this function
+(new code goes above)</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>    session.emit(<span class="string">"new-element"</span>, ui.container);
+
+    <span class="keyword">if</span> (finishedAt &amp;&amp; finishedAt &gt; Date.now()) {
+      setTimeout(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        finishedAt = <span class="literal">null</span>;
+        session.emit(<span class="string">"ui-ready"</span>, ui);
+      }, finishedAt - Date.now());
+    } <span class="keyword">else</span> {
+      session.emit(<span class="string">"ui-ready"</span>, ui);
+    }
+
+  }; <span class="comment">// End ui.activateUI()</span>
+
+  ui.activateAvatarEdit = <span class="function"><span class="keyword">function</span> <span class="params">(container, options)</span> {</span>
+    options = options || {};
+    <span class="keyword">var</span> pendingImage = <span class="literal">null</span>;
+
+    container.find(<span class="string">".togetherjs-avatar-save"</span>).prop(<span class="string">"disabled"</span>, <span class="literal">true</span>);
+
+    container.find(<span class="string">".togetherjs-avatar-save"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      <span class="keyword">if</span> (pendingImage) {
+        peers.Self.update({avatar: pendingImage});
+        container.find(<span class="string">".togetherjs-avatar-save"</span>).prop(<span class="string">"disabled"</span>, <span class="literal">true</span>);
+        <span class="keyword">if</span> (options.onSave) {
+          options.onSave();
+        }
+      }
+    });
+
+    container.find(<span class="string">".togetherjs-upload-avatar"</span>).on(<span class="string">"change"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      util.readFileImage(<span class="keyword">this</span>).then(<span class="function"><span class="keyword">function</span> <span class="params">(url)</span> {</span>
+        sizeDownImage(url).then(<span class="function"><span class="keyword">function</span> <span class="params">(smallUrl)</span> {</span>
+          pendingImage = smallUrl;
+          container.find(<span class="string">".togetherjs-avatar-preview"</span>).css({
+            backgroundImage: <span class="string">'url('</span> + pendingImage + <span class="string">')'</span>
+          });
+          container.find(<span class="string">".togetherjs-avatar-save"</span>).prop(<span class="string">"disabled"</span>, <span class="literal">false</span>);
+          <span class="keyword">if</span> (options.onPending) {
+            options.onPending();
+          }
+        });
+      });
+    });
+
+  };
+
+  <span class="function"><span class="keyword">function</span> <span class="title">sizeDownImage</span><span class="params">(imageUrl)</span> {</span>
+    <span class="keyword">return</span> util.Deferred(<span class="function"><span class="keyword">function</span> <span class="params">(def)</span> {</span>
+      <span class="keyword">var</span> $canvas = $(<span class="string">"&lt;canvas&gt;"</span>);
+      $canvas[<span class="number">0</span>].height = session.AVATAR_SIZE;
+      $canvas[<span class="number">0</span>].width = session.AVATAR_SIZE;
+      <span class="keyword">var</span> context = $canvas[<span class="number">0</span>].getContext(<span class="string">"2d"</span>);
+      <span class="keyword">var</span> img = <span class="keyword">new</span> Image();
+      img.src = imageUrl;</pre></div></div>
+              
+            </li>
+          
+            <li id="section-47">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-47">&#182;</a>
+                </div>
+                <p>Sometimes the DOM updates immediately to call
+naturalWidth/etc, and sometimes it doesn’t; using setTimeout
+gives it a chance to catch up</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      setTimeout(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        <span class="keyword">var</span> width = img.naturalWidth || img.width;
+        <span class="keyword">var</span> height = img.naturalHeight || img.height;
+        width = width * (session.AVATAR_SIZE / height);
+        height = session.AVATAR_SIZE;
+        context.drawImage(img, <span class="number">0</span>, <span class="number">0</span>, width, height);
+        def.resolve($canvas[<span class="number">0</span>].toDataURL(<span class="string">"image/png"</span>));
+      });
+    });
+  }
+
+  <span class="function"><span class="keyword">function</span> <span class="title">fixupAvatars</span><span class="params">(container)</span> {</span>
+    <span class="comment">/* All &lt;div class="togetherjs-person" /&gt; elements need an element inside,
+       so we add that element here */</span>
+    container.find(<span class="string">".togetherjs-person"</span>).each(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>);
+      <span class="keyword">var</span> inner = $<span class="keyword">this</span>.find(<span class="string">".togetherjs-person-avatar-swatch"</span>);
+      <span class="keyword">if</span> (! inner.length) {
+        $<span class="keyword">this</span>.append(<span class="string">'&lt;div class="togetherjs-person-avatar-swatch"&gt;&lt;/div&gt;'</span>);
+      }
+    });
+  }
+
+  ui.prepareShareLink = <span class="function"><span class="keyword">function</span> <span class="params">(container)</span> {</span>
+    container.find(<span class="string">"input.togetherjs-share-link"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      $(<span class="keyword">this</span>).select();
+    }).change(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      updateShareLink();
+    });
+    container.find(<span class="string">"a.togetherjs-share-link"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span></pre></div></div>
+              
+            </li>
+          
+            <li id="section-48">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-48">&#182;</a>
+                </div>
+                <p>FIXME: this is currently opening up Bluetooth, not sharing a link</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      <span class="keyword">if</span> (<span class="literal">false</span> &amp;&amp; window.MozActivity) {
+        <span class="keyword">var</span> activity = <span class="keyword">new</span> MozActivity({
+          name: <span class="string">"share"</span>,
+          data: {
+            type: <span class="string">"url"</span>,
+            url: $(<span class="keyword">this</span>).attr(<span class="string">"href"</span>)
+          }
+        });
+      }</pre></div></div>
+              
+            </li>
+          
+            <li id="section-49">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-49">&#182;</a>
+                </div>
+                <p>FIXME: should show some help if you actually try to follow the link
+like this, instead of simply suppressing it</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      <span class="keyword">return</span> <span class="literal">false</span>;
+    });
+    updateShareLink();
+  };</pre></div></div>
+              
+            </li>
+          
+            <li id="section-50">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-50">&#182;</a>
+                </div>
+                <p>Menu</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>
+  <span class="function"><span class="keyword">function</span> <span class="title">showMenu</span><span class="params">(event)</span> {</span>
+    <span class="keyword">var</span> el = $(<span class="string">"#togetherjs-menu"</span>);
+    assert(el.length);
+    el.show();
+    bindMenu();
+    $(document).bind(<span class="string">"click"</span>, maybeHideMenu);
+  }
+
+  <span class="function"><span class="keyword">function</span> <span class="title">bindMenu</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> el = $(<span class="string">"#togetherjs-menu:visible"</span>);
+    <span class="keyword">if</span> (el.length) {
+      <span class="keyword">var</span> bound = $(<span class="string">"#togetherjs-profile-button"</span>);
+      <span class="keyword">var</span> boundOffset = bound.offset();
+      el.css({
+        top: boundOffset.top + bound.height() - $window.scrollTop() + <span class="string">"px"</span>,
+        left: (boundOffset.left + bound.width() - <span class="number">10</span> - el.width() - $window.scrollLeft()) + <span class="string">"px"</span>
+      });
+    }
+  }
+
+  <span class="function"><span class="keyword">function</span> <span class="title">bindPicker</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> picker = $(<span class="string">"#togetherjs-pick-color:visible"</span>);
+    <span class="keyword">if</span> (picker.length) {
+      <span class="keyword">var</span> menu = $(<span class="string">"#togetherjs-menu-update-color"</span>);
+      <span class="keyword">var</span> menuOffset = menu.offset();
+      picker.css({
+        top: menuOffset.top + menu.height(),
+        left: menuOffset.left
+      });
+    }
+  }
+
+  session.on(<span class="string">"resize"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    bindMenu();
+    bindPicker();
+  });
+
+  <span class="function"><span class="keyword">function</span> <span class="title">toggleMenu</span><span class="params">()</span> {</span>
+    <span class="keyword">if</span> ($(<span class="string">"#togetherjs-menu"</span>).is(<span class="string">":visible"</span>)) {
+      hideMenu();
+    } <span class="keyword">else</span> {
+      showMenu();
+    }
+  }
+
+  <span class="function"><span class="keyword">function</span> <span class="title">hideMenu</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> el = $(<span class="string">"#togetherjs-menu"</span>);
+    el.hide();
+    $(document).unbind(<span class="string">"click"</span>, maybeHideMenu);
+    ui.displayToggle(<span class="string">"#togetherjs-self-name-display"</span>);
+    $(<span class="string">"#togetherjs-pick-color"</span>).hide();
+  }
+
+  <span class="function"><span class="keyword">function</span> <span class="title">maybeHideMenu</span><span class="params">(event)</span> {</span>
+    <span class="keyword">var</span> t = event.target;
+    <span class="keyword">while</span> (t) {
+      <span class="keyword">if</span> (t.id == <span class="string">"togetherjs-menu"</span>) {</pre></div></div>
+              
+            </li>
+          
+            <li id="section-51">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-51">&#182;</a>
+                </div>
+                <p>Click inside the menu, ignore this</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>        <span class="keyword">return</span>;
+      }
+      t = t.parentNode;
+    }
+    hideMenu();
+  }
+
+  <span class="function"><span class="keyword">function</span> <span class="title">adjustDockSize</span><span class="params">(buttons)</span> {</span>
+    <span class="comment">/* Add or remove spots from the dock; positive number to
+       add button(s), negative number to remove button(s)
+       */</span>
+    assert(<span class="keyword">typeof</span> buttons == <span class="string">"number"</span>);
+    assert(buttons &amp;&amp; Math.floor(buttons) == buttons);
+    <span class="keyword">var</span> iface = $(<span class="string">"#togetherjs-dock"</span>);
+    <span class="keyword">var</span> newHeight = iface.height() + (BUTTON_HEIGHT * buttons);
+    assert(newHeight &gt;= BUTTON_HEIGHT * <span class="number">3</span>, <span class="string">"Height went too low ("</span>, newHeight,
+           <span class="string">"), should never be less than 3 buttons high ("</span>, BUTTON_HEIGHT * <span class="number">3</span>, <span class="string">")"</span>);
+    iface.css({
+      height: newHeight + <span class="string">"px"</span>
+    });
+  }</pre></div></div>
+              
+            </li>
+          
+            <li id="section-52">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-52">&#182;</a>
+                </div>
+                <p>Misc</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>
+  <span class="function"><span class="keyword">function</span> <span class="title">updateShareLink</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> input = $(<span class="string">"input.togetherjs-share-link"</span>);
+    <span class="keyword">var</span> link = $(<span class="string">"a.togetherjs-share-link"</span>);
+    <span class="keyword">var</span> display = $(<span class="string">"#togetherjs-session-id"</span>);
+    <span class="keyword">if</span> (! session.shareId) {
+      input.val(<span class="string">""</span>);
+      link.attr(<span class="string">"href"</span>, <span class="string">"#"</span>);
+      display.text(<span class="string">"(none)"</span>);
+    } <span class="keyword">else</span> {
+      input.val(session.shareUrl());
+      link.attr(<span class="string">"href"</span>, session.shareUrl());
+      display.text(session.shareId);
+    }
+  }
+
+  session.on(<span class="string">"close"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+
+    <span class="keyword">if</span>($.browser.mobile) {</pre></div></div>
+              
+            </li>
+          
+            <li id="section-53">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-53">&#182;</a>
+                </div>
+                <p>remove bg overlay
+$(“.overlay”).remove();</p>
+
+              </div>
+              
+              
+            </li>
+          
+            <li id="section-54">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-54">&#182;</a>
+                </div>
+                <p>after hitting End, reset window draggin</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      $(<span class="string">"body"</span>).css({
+        <span class="string">"position"</span>: <span class="string">""</span>,
+        top: <span class="string">""</span>,
+        left: <span class="string">""</span>
+      });
+
+    }
+
+    <span class="keyword">if</span> (ui.container) {
+      ui.container.remove();
+      ui.container = <span class="literal">null</span>;
+    }</pre></div></div>
+              
+            </li>
+          
+            <li id="section-55">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-55">&#182;</a>
+                </div>
+                <p>Clear out any other spurious elements:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>    $(<span class="string">".togetherjs"</span>).remove();
+    <span class="keyword">var</span> starterButton = $(<span class="string">"#togetherjs-starter button"</span>);
+    starterButton.removeClass(<span class="string">"togetherjs-running"</span>);
+    <span class="keyword">if</span> (starterButton.attr(<span class="string">"data-start-text"</span>)) {
+      starterButton.text(starterButton.attr(<span class="string">"data-start-text"</span>));
+      starterButton.attr(<span class="string">"data-start-text"</span>, <span class="string">""</span>);
+    }
+    <span class="keyword">if</span> (TogetherJS.startTarget) {
+      <span class="keyword">var</span> el = $(TogetherJS.startTarget);
+      <span class="keyword">if</span> (el.attr(<span class="string">"data-start-togetherjs-html"</span>)) {
+        el.html(el.attr(<span class="string">"data-start-togetherjs-html"</span>));
+      }
+      el.removeClass(<span class="string">"togetherjs-started"</span>);
+    }
+  });
+
+  ui.chat = {
+    text: <span class="function"><span class="keyword">function</span> <span class="params">(attrs)</span> {</span>
+      assert(<span class="keyword">typeof</span> attrs.text == <span class="string">"string"</span>);
+      assert(attrs.peer);
+      assert(attrs.messageId);
+      <span class="keyword">var</span> date = attrs.date || Date.now();
+      <span class="keyword">var</span> lastEl = ui.container.find(<span class="string">"#togetherjs-chat .togetherjs-chat-message"</span>);
+      <span class="keyword">if</span> (lastEl.length) {
+        lastEl = $(lastEl[lastEl.length-<span class="number">1</span>]);
+      }
+      <span class="keyword">var</span> lastDate = <span class="literal">null</span>;
+      <span class="keyword">if</span> (lastEl) {
+        lastDate = parseInt(lastEl.attr(<span class="string">"data-date"</span>), <span class="number">10</span>);
+      }
+      <span class="keyword">if</span> (lastEl &amp;&amp; lastEl.attr(<span class="string">"data-person"</span>) == attrs.peer.id &amp;&amp;
+          lastDate &amp;&amp; date &lt; lastDate + COLLAPSE_MESSAGE_LIMIT) {
+        lastEl.attr(<span class="string">"data-date"</span>, date);
+        <span class="keyword">var</span> content = lastEl.find(<span class="string">".togetherjs-chat-content"</span>);
+        assert(content.length);
+        attrs.text = content.text() + <span class="string">"\n"</span> + attrs.text;
+        attrs.messageId = lastEl.attr(<span class="string">"data-message-id"</span>);
+        lastEl.remove();
+      }
+      <span class="keyword">var</span> el = templating.sub(<span class="string">"chat-message"</span>, {
+        peer: attrs.peer,
+        content: attrs.text,
+        date: date
+      });
+      linkify(el.find(<span class="string">".togetherjs-chat-content"</span>));
+      el.attr(<span class="string">"data-person"</span>, attrs.peer.id)
+        .attr(<span class="string">"data-date"</span>, date)
+        .attr(<span class="string">"data-message-id"</span>, attrs.messageId);
+      ui.chat.add(el, attrs.messageId, attrs.notify);
+    },
+
+    joinedSession: <span class="function"><span class="keyword">function</span> <span class="params">(attrs)</span> {</span>
+      assert(attrs.peer);
+      <span class="keyword">var</span> date = attrs.date || Date.now();
+      <span class="keyword">var</span> el = templating.sub(<span class="string">"chat-joined"</span>, {
+        peer: attrs.peer,
+        date: date
+      });</pre></div></div>
+              
+            </li>
+          
+            <li id="section-56">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-56">&#182;</a>
+                </div>
+                <p>FIXME: should bind the notification to the dock location</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      ui.chat.add(el, attrs.peer.className(<span class="string">"join-message-"</span>), <span class="number">4000</span>);
+    },
+
+    leftSession: <span class="function"><span class="keyword">function</span> <span class="params">(attrs)</span> {</span>
+      assert(attrs.peer);
+      <span class="keyword">var</span> date = attrs.date || Date.now();
+      <span class="keyword">var</span> el = templating.sub(<span class="string">"chat-left"</span>, {
+        peer: attrs.peer,
+        date: date,
+        declinedJoin: attrs.declinedJoin
+      });</pre></div></div>
+              
+            </li>
+          
+            <li id="section-57">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-57">&#182;</a>
+                </div>
+                <p>FIXME: should bind the notification to the dock location</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      ui.chat.add(el, attrs.peer.className(<span class="string">"join-message-"</span>), <span class="number">4000</span>);
+    },
+
+    system: <span class="function"><span class="keyword">function</span> <span class="params">(attrs)</span> {</span>
+      assert(! attrs.peer);
+      assert(<span class="keyword">typeof</span> attrs.text == <span class="string">"string"</span>);
+      <span class="keyword">var</span> date = attrs.date || Date.now();
+      <span class="keyword">var</span> el = templating.sub(<span class="string">"chat-system"</span>, {
+        content: attrs.text,
+        date: date
+      });
+      ui.chat.add(el, <span class="literal">undefined</span>, <span class="literal">true</span>);
+    },
+
+    clear: deferForContainer(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      <span class="keyword">var</span> container = ui.container.find(<span class="string">"#togetherjs-chat-messages"</span>);
+      container.empty();
+    }),
+
+    urlChange: <span class="function"><span class="keyword">function</span> <span class="params">(attrs)</span> {</span>
+      assert(attrs.peer);
+      assert(<span class="keyword">typeof</span> attrs.url == <span class="string">"string"</span>);
+      assert(<span class="keyword">typeof</span> attrs.sameUrl == <span class="string">"boolean"</span>);
+      <span class="keyword">var</span> messageId = attrs.peer.className(<span class="string">"url-change-"</span>);</pre></div></div>
+              
+            </li>
+          
+            <li id="section-58">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-58">&#182;</a>
+                </div>
+                <p>FIXME: duplicating functionality in .add():</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      <span class="keyword">var</span> realId = <span class="string">"togetherjs-chat-"</span> + messageId;
+      <span class="keyword">var</span> date = attrs.date || Date.now();
+      <span class="keyword">var</span> title;</pre></div></div>
+              
+            </li>
+          
+            <li id="section-59">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-59">&#182;</a>
+                </div>
+                <p>FIXME: strip off common domain from msg.url?  E.g., if I’m on
+<a href="http://example.com/foobar">http://example.com/foobar</a>, and someone goes to <a href="http://example.com/baz">http://example.com/baz</a> then
+show only /baz
+FIXME: truncate long titles</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      <span class="keyword">if</span> (attrs.title) {
+        title = attrs.title + <span class="string">" ("</span> + attrs.url + <span class="string">")"</span>;
+      } <span class="keyword">else</span> {
+        title = attrs.url;
+      }
+      <span class="keyword">var</span> el = templating.sub(<span class="string">"url-change"</span>, {
+        peer: attrs.peer,
+        date: date,
+        href: attrs.url,
+        title: title,
+        sameUrl: attrs.sameUrl
+      });
+      el.find(<span class="string">".togetherjs-nudge"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        attrs.peer.nudge();
+        <span class="keyword">return</span> <span class="literal">false</span>;
+      });
+      el.find(<span class="string">".togetherjs-follow"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        <span class="keyword">var</span> url = attrs.peer.url;
+        <span class="keyword">if</span> (attrs.peer.urlHash) {
+          url += attrs.peer.urlHash;
+        }
+        location.href = url;
+      });
+      <span class="keyword">var</span> notify = ! attrs.sameUrl;
+      <span class="keyword">if</span> (attrs.sameUrl &amp;&amp; ! $(<span class="string">"#"</span> + realId).length) {</pre></div></div>
+              
+            </li>
+          
+            <li id="section-60">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-60">&#182;</a>
+                </div>
+                <p>Don’t bother showing a same-url notification, if no previous notification
+had been shown</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>        <span class="keyword">return</span>;
+      }
+      ui.chat.add(el, messageId, notify);
+    },
+
+    invite: <span class="function"><span class="keyword">function</span> <span class="params">(attrs)</span> {</span>
+      assert(attrs.peer);
+      assert(<span class="keyword">typeof</span> attrs.url == <span class="string">"string"</span>);
+      <span class="keyword">var</span> messageId = attrs.peer.className(<span class="string">"invite-"</span>);
+      <span class="keyword">var</span> date = attrs.date || Date.now();
+      <span class="keyword">var</span> hrefTitle = attrs.url.replace(<span class="regexp">/\#?&amp;togetherjs=.*/</span>, <span class="string">""</span>).replace(<span class="regexp">/^\w+:\/\//</span>, <span class="string">""</span>);
+      <span class="keyword">var</span> el = templating.sub(<span class="string">"invite"</span>, {
+        peer: attrs.peer,
+        date: date,
+        href: attrs.url,
+        hrefTitle: hrefTitle,
+        forEveryone: attrs.forEveryone
+      });
+      <span class="keyword">if</span> (attrs.forEveryone) {
+        el.find(<span class="string">"a"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span></pre></div></div>
+              
+            </li>
+          
+            <li id="section-61">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-61">&#182;</a>
+                </div>
+                <p>FIXME: hacky way to do this:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>          chat.submit(<span class="string">"Followed link to "</span> + attrs.url);
+        });
+      }
+      ui.chat.add(el, messageId, <span class="literal">true</span>);
+    },
+
+    hideTimeout: <span class="literal">null</span>,
+
+    add: deferForContainer(<span class="function"><span class="keyword">function</span> <span class="params">(el, id, notify)</span> {</span>
+      <span class="keyword">if</span> (id) {
+        el.attr(<span class="string">"id"</span>, <span class="string">"togetherjs-chat-"</span> + util.safeClassName(id));
+      }
+      <span class="keyword">var</span> container = ui.container.find(<span class="string">"#togetherjs-chat-messages"</span>);
+      assert(container.length);
+      <span class="keyword">var</span> popup = ui.container.find(<span class="string">"#togetherjs-chat-notifier"</span>);
+      container.append(el);
+      ui.chat.scroll();
+      <span class="keyword">var</span> doNotify = !! notify;
+      <span class="keyword">var</span> section = popup.find(<span class="string">"#togetherjs-chat-notifier-message"</span>);
+      <span class="keyword">if</span> (notify &amp;&amp; visibilityApi.hidden()) {
+        ui.container.find(<span class="string">"#togetherjs-notification"</span>)[<span class="number">0</span>].play();
+      }
+      <span class="keyword">if</span> (id &amp;&amp; section.data(<span class="string">"message-id"</span>) == id) {
+        doNotify = <span class="literal">true</span>;
+      }
+      <span class="keyword">if</span> (container.is(<span class="string">":visible"</span>)) {
+        doNotify = <span class="literal">false</span>;
+      }
+      <span class="keyword">if</span> (doNotify) {
+        section.empty();
+        section.append(el.clone(<span class="literal">true</span>, <span class="literal">true</span>));
+        <span class="keyword">if</span> (section.data(<span class="string">"message-id"</span>) != id)  {
+          section.data(<span class="string">"message-id"</span>, id || <span class="string">""</span>);
+          windowing.show(popup);
+        } <span class="keyword">else</span> <span class="keyword">if</span> (! popup.is(<span class="string">":visible"</span>)) {
+          windowing.show(popup);
+        }
+        <span class="keyword">if</span> (<span class="keyword">typeof</span> notify == <span class="string">"number"</span>) {</pre></div></div>
+              
+            </li>
+          
+            <li id="section-62">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-62">&#182;</a>
+                </div>
+                <p>This is the amount of time we’re supposed to notify</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>          <span class="keyword">if</span> (<span class="keyword">this</span>.hideTimeout) {
+            clearTimeout(<span class="keyword">this</span>.hideTimeout);
+            <span class="keyword">this</span>.hideTimeout = <span class="literal">null</span>;
+          }
+          <span class="keyword">this</span>.hideTimeout = setTimeout((<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+            windowing.hide(popup);
+            <span class="keyword">this</span>.hideTimeout = <span class="literal">null</span>;
+          }).bind(<span class="keyword">this</span>), notify);
+        }
+      }
+    }),
+
+    scroll: deferForContainer(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      <span class="keyword">var</span> container = ui.container.find(<span class="string">"#togetherjs-chat-messages"</span>)[<span class="number">0</span>];
+      container.scrollTop = container.scrollHeight;
+    })
+
+  };
+
+  session.on(<span class="string">"display-window"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(id, win)</span> {</span>
+    <span class="keyword">if</span> (id == <span class="string">"togetherjs-chat"</span>) {
+      ui.chat.scroll();
+      windowing.hide(<span class="string">"#togetherjs-chat-notifier"</span>);
+    }
+  });
+
+  <span class="comment">/* This class is bound to peers.Peer instances as peer.view.
+     The .update() method is regularly called by peer objects when info changes. */</span>
+  ui.PeerView = util.Class({
+
+    constructor: <span class="function"><span class="keyword">function</span> <span class="params">(peer)</span> {</span>
+      assert(peer.isSelf !== <span class="literal">undefined</span>, <span class="string">"PeerView instantiated with non-Peer object"</span>);
+      <span class="keyword">this</span>.peer = peer;
+      <span class="keyword">this</span>.dockClick = <span class="keyword">this</span>.dockClick.bind(<span class="keyword">this</span>);
+    },
+
+    <span class="comment">/* Takes an element and sets any person-related attributes on the element
+       Different from updates, which use the class names we set here: */</span>
+    setElement: <span class="function"><span class="keyword">function</span> <span class="params">(el)</span> {</span>
+      <span class="keyword">var</span> count = <span class="number">0</span>;
+      <span class="keyword">var</span> classes = [<span class="string">"togetherjs-person"</span>, <span class="string">"togetherjs-person-status"</span>,
+                     <span class="string">"togetherjs-person-name"</span>, <span class="string">"togetherjs-person-name-abbrev"</span>,
+                     <span class="string">"togetherjs-person-bgcolor"</span>, <span class="string">"togetherjs-person-swatch"</span>,
+                     <span class="string">"togetherjs-person-status"</span>, <span class="string">"togetherjs-person-role"</span>,
+                     <span class="string">"togetherjs-person-url"</span>, <span class="string">"togetherjs-person-url-title"</span>,
+                     <span class="string">"togetherjs-person-bordercolor"</span>];
+      classes.forEach(<span class="function"><span class="keyword">function</span> <span class="params">(cls)</span> {</span>
+        <span class="keyword">var</span> els = el.find(<span class="string">"."</span> + cls);
+        els.addClass(<span class="keyword">this</span>.peer.className(cls + <span class="string">"-"</span>));
+        count += els.length;
+      }, <span class="keyword">this</span>);
+      <span class="keyword">if</span> (! count) {
+        console.warn(<span class="string">"setElement("</span>, el, <span class="string">") doesn't contain any person items"</span>);
+      }
+      <span class="keyword">this</span>.updateDisplay(el);
+    },
+
+    updateDisplay: deferForContainer(<span class="function"><span class="keyword">function</span> <span class="params">(container)</span> {</span>
+      container = container || ui.container;
+      <span class="keyword">var</span> abbrev = <span class="keyword">this</span>.peer.name;
+      <span class="keyword">if</span> (<span class="keyword">this</span>.peer.isSelf) {
+        abbrev = <span class="string">"me"</span>;
+      }
+      container.find(<span class="string">"."</span> + <span class="keyword">this</span>.peer.className(<span class="string">"togetherjs-person-name-"</span>)).text(<span class="keyword">this</span>.peer.name || <span class="string">""</span>);
+      container.find(<span class="string">"."</span> + <span class="keyword">this</span>.peer.className(<span class="string">"togetherjs-person-name-abbrev-"</span>)).text(abbrev);
+      <span class="keyword">var</span> avatarEl = container.find(<span class="string">"."</span> + <span class="keyword">this</span>.peer.className(<span class="string">"togetherjs-person-"</span>));
+      <span class="keyword">if</span> (<span class="keyword">this</span>.peer.avatar) {
+        util.assertValidUrl(<span class="keyword">this</span>.peer.avatar);
+        avatarEl.css({
+          backgroundImage: <span class="string">"url("</span> + <span class="keyword">this</span>.peer.avatar + <span class="string">")"</span>
+        });
+      }
+      <span class="keyword">if</span> (<span class="keyword">this</span>.peer.idle == <span class="string">"inactive"</span>) {
+        avatarEl.addClass(<span class="string">"togetherjs-person-inactive"</span>);
+      } <span class="keyword">else</span> {
+        avatarEl.removeClass(<span class="string">"togetherjs-person-inactive"</span>);
+      }
+      avatarEl.attr(<span class="string">"title"</span>, <span class="keyword">this</span>.peer.name);
+      <span class="keyword">if</span> (<span class="keyword">this</span>.peer.color) {
+        avatarEl.css({
+          borderColor: <span class="keyword">this</span>.peer.color
+        });
+        avatarEl.find(<span class="string">".togetherjs-person-avatar-swatch"</span>).css({
+          borderTopColor: <span class="keyword">this</span>.peer.color,
+          borderRightColor: <span class="keyword">this</span>.peer.color
+        });
+      }
+      <span class="keyword">if</span> (<span class="keyword">this</span>.peer.color) {
+        <span class="keyword">var</span> colors = container.find(<span class="string">"."</span> + <span class="keyword">this</span>.peer.className(<span class="string">"togetherjs-person-bgcolor-"</span>));
+        colors.css({
+          backgroundColor: <span class="keyword">this</span>.peer.color
+        });
+        colors = container.find(<span class="string">"."</span> + <span class="keyword">this</span>.peer.className(<span class="string">"togetherjs-person-bordercolor-"</span>));
+        colors.css({
+          borderColor: <span class="keyword">this</span>.peer.color
+        });
+      }
+      container.find(<span class="string">"."</span> + <span class="keyword">this</span>.peer.className(<span class="string">"togetherjs-person-role-"</span>))
+        .text(<span class="keyword">this</span>.peer.isCreator ? <span class="string">"Creator"</span> : <span class="string">"Participant"</span>);
+      <span class="keyword">var</span> urlName = <span class="keyword">this</span>.peer.title || <span class="string">""</span>;
+      <span class="keyword">if</span> (<span class="keyword">this</span>.peer.title) {
+        urlName += <span class="string">" ("</span>;
+      }
+      urlName += util.truncateCommonDomain(<span class="keyword">this</span>.peer.url, location.href);
+      <span class="keyword">if</span> (<span class="keyword">this</span>.peer.title) {
+        urlName += <span class="string">")"</span>;
+      }
+      container.find(<span class="string">"."</span> + <span class="keyword">this</span>.peer.className(<span class="string">"togetherjs-person-url-title-"</span>))
+        .text(urlName);
+      <span class="keyword">var</span> url = <span class="keyword">this</span>.peer.url;
+      <span class="keyword">if</span> (<span class="keyword">this</span>.peer.urlHash) {
+        url += <span class="keyword">this</span>.peer.urlHash;
+      }
+      container.find(<span class="string">"."</span> + <span class="keyword">this</span>.peer.className(<span class="string">"togetherjs-person-url-"</span>))
+        .attr(<span class="string">"href"</span>, url);</pre></div></div>
+              
+            </li>
+          
+            <li id="section-63">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-63">&#182;</a>
+                </div>
+                <p>FIXME: should have richer status:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      container.find(<span class="string">"."</span> + <span class="keyword">this</span>.peer.className(<span class="string">"togetherjs-person-status-"</span>))
+        .text(<span class="keyword">this</span>.peer.idle == <span class="string">"active"</span> ? <span class="string">"Active"</span> : <span class="string">"Inactive"</span>);
+      <span class="keyword">if</span> (<span class="keyword">this</span>.peer.isSelf) {</pre></div></div>
+              
+            </li>
+          
+            <li id="section-64">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-64">&#182;</a>
+                </div>
+                <p>FIXME: these could also have consistent/reliable class names:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>        <span class="keyword">var</span> selfName = $(<span class="string">".togetherjs-self-name"</span>);
+        selfName.each((<span class="function"><span class="keyword">function</span> <span class="params">(index, el)</span> {</span>
+          el = $(el);
+          <span class="keyword">if</span> (el.val() != <span class="keyword">this</span>.peer.name) {
+            el.val(<span class="keyword">this</span>.peer.name);
+          }
+        }).bind(<span class="keyword">this</span>));
+        $(<span class="string">"#togetherjs-menu-avatar"</span>).attr(<span class="string">"src"</span>, <span class="keyword">this</span>.peer.avatar);
+        <span class="keyword">if</span> (! <span class="keyword">this</span>.peer.name) {
+          $(<span class="string">"#togetherjs-menu .togetherjs-person-name-self"</span>).text(<span class="keyword">this</span>.peer.defaultName);
+        }
+      }
+      <span class="keyword">if</span> (<span class="keyword">this</span>.peer.url != session.currentUrl()) {
+        container.find(<span class="string">"."</span> + <span class="keyword">this</span>.peer.className(<span class="string">"togetherjs-person-"</span>))
+            .addClass(<span class="string">"togetherjs-person-other-url"</span>);
+      } <span class="keyword">else</span> {
+        container.find(<span class="string">"."</span> + <span class="keyword">this</span>.peer.className(<span class="string">"togetherjs-person-"</span>))
+            .removeClass(<span class="string">"togetherjs-person-other-url"</span>);
+      }
+      <span class="keyword">if</span> (<span class="keyword">this</span>.peer.following) {
+        <span class="keyword">if</span> (<span class="keyword">this</span>.followCheckbox) {
+          <span class="keyword">this</span>.followCheckbox.prop(<span class="string">"checked"</span>, <span class="literal">true</span>);
+        }
+      } <span class="keyword">else</span> {
+        <span class="keyword">if</span> (<span class="keyword">this</span>.followCheckbox) {
+          <span class="keyword">this</span>.followCheckbox.prop(<span class="string">"checked"</span>, <span class="literal">false</span>);
+        }
+      }</pre></div></div>
+              
+            </li>
+          
+            <li id="section-65">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-65">&#182;</a>
+                </div>
+                <p>FIXME: add some style based on following?</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      updateChatParticipantList();
+      <span class="keyword">this</span>.updateFollow();
+    }),
+
+    update: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      <span class="keyword">if</span> (! <span class="keyword">this</span>.peer.isSelf) {
+        <span class="keyword">if</span> (<span class="keyword">this</span>.peer.status == <span class="string">"live"</span>) {
+          <span class="keyword">this</span>.dock();
+        } <span class="keyword">else</span> {
+          <span class="keyword">this</span>.undock();
+        }
+      }
+      <span class="keyword">this</span>.updateDisplay();
+      <span class="keyword">this</span>.updateUrlDisplay();
+    },
+
+    updateUrlDisplay: <span class="function"><span class="keyword">function</span> <span class="params">(force)</span> {</span>
+      <span class="keyword">var</span> url = <span class="keyword">this</span>.peer.url;
+      <span class="keyword">if</span> ((! url) || (url == <span class="keyword">this</span>._lastUpdateUrlDisplay &amp;&amp; ! force)) {
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">this</span>._lastUpdateUrlDisplay = url;
+      <span class="keyword">var</span> sameUrl = url == session.currentUrl();
+      ui.chat.urlChange({
+        peer: <span class="keyword">this</span>.peer,
+        url: <span class="keyword">this</span>.peer.url,
+        title: <span class="keyword">this</span>.peer.title,
+        sameUrl: sameUrl
+      });
+    },
+
+    urlNudge: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span></pre></div></div>
+              
+            </li>
+          
+            <li id="section-66">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-66">&#182;</a>
+                </div>
+                <p>FIXME: do something more distinct here</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      <span class="keyword">this</span>.updateUrlDisplay(<span class="literal">true</span>);
+    },
+
+    notifyJoined: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      ui.chat.joinedSession({
+        peer: <span class="keyword">this</span>.peer
+      });
+    },</pre></div></div>
+              
+            </li>
+          
+            <li id="section-67">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-67">&#182;</a>
+                </div>
+                <p>when there are too many participants in the dock, consolidate the participants to one avatar, and on mouseOver, the dock expands down to reveal the rest of the participants
+if there are X users in the session
+then hide the users in the dock
+and shrink the size of the dock
+and if you rollover the dock, it expands and reveals the rest of the participants in the dock</p>
+
+              </div>
+              
+              
+            </li>
+          
+            <li id="section-68">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-68">&#182;</a>
+                </div>
+                <p>if users hit X then show the participant button with the consol</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>
+    dock: deferForContainer(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+
+      <span class="keyword">var</span> numberOfUsers = peers.getAllPeers().length;</pre></div></div>
+              
+            </li>
+          
+            <li id="section-69">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-69">&#182;</a>
+                </div>
+                <p>collapse the Dock if too many users</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      <span class="function"><span class="keyword">function</span> <span class="title">CollapsedDock</span><span class="params">()</span> {</span></pre></div></div>
+              
+            </li>
+          
+            <li id="section-70">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-70">&#182;</a>
+                </div>
+                <p>decrease/reset dock height</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>        $(<span class="string">"#togetherjs-dock"</span>).css(<span class="string">"height"</span>, <span class="number">260</span>);</pre></div></div>
+              
+            </li>
+          
+            <li id="section-71">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-71">&#182;</a>
+                </div>
+                <p>replace participant button</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>        $(<span class="string">"#togetherjs-dock-participants"</span>).replaceWith(<span class="string">"&lt;button id='togetherjs-participantlist-button' class='togetherjs-button'&gt;&lt;div class='togetherjs-tooltip togetherjs-dock-person-tooltip'&gt;&lt;span class='togetherjs-person-name'&gt;Participants&lt;/span&gt;&lt;span class='togetherjs-person-tooltip-arrow-r'&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class='togetherjs-person togetherjs-person-status-overlay' title='Participant List' style='background-image: url("</span>+TogetherJS.baseUrl+<span class="string">"/togetherjs/images/robot-avatar.png); border-color: rgb(255, 0, 0);'&gt;&lt;/div&gt;&lt;/button&gt;"</span>);</pre></div></div>
+              
+            </li>
+          
+            <li id="section-72">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-72">&#182;</a>
+                </div>
+                <p>new full participant window created on toggle</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>        $(<span class="string">"#togetherjs-participantlist-button"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+          windowing.toggle(<span class="string">"#togetherjs-participantlist"</span>);
+        });
+      }</pre></div></div>
+              
+            </li>
+          
+            <li id="section-73">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-73">&#182;</a>
+                </div>
+                <p>FIXME: turned off for now</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      <span class="keyword">if</span>( numberOfUsers &gt;= <span class="number">5</span> &amp;&amp; <span class="literal">false</span>) {
+        CollapsedDock();
+      } <span class="keyword">else</span> {</pre></div></div>
+              
+            </li>
+          
+            <li id="section-74">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-74">&#182;</a>
+                </div>
+                <p>reset</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>
+      }
+
+
+      <span class="keyword">if</span> (<span class="keyword">this</span>.dockElement) {
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">this</span>.dockElement = templating.sub(<span class="string">"dock-person"</span>, {
+        peer: <span class="keyword">this</span>.peer
+      });
+      <span class="keyword">this</span>.dockElement.attr(<span class="string">"id"</span>, <span class="keyword">this</span>.peer.className(<span class="string">"togetherjs-dock-element-"</span>));
+      ui.container.find(<span class="string">"#togetherjs-dock-participants"</span>).append(<span class="keyword">this</span>.dockElement);
+      <span class="keyword">this</span>.dockElement.find(<span class="string">".togetherjs-person"</span>).animateDockEntry();
+      adjustDockSize(<span class="number">1</span>);
+      <span class="keyword">this</span>.detailElement = templating.sub(<span class="string">"participant-window"</span>, {
+        peer: <span class="keyword">this</span>.peer
+      });
+      <span class="keyword">var</span> followId = <span class="keyword">this</span>.peer.className(<span class="string">"togetherjs-person-status-follow-"</span>);
+      <span class="keyword">this</span>.detailElement.find(<span class="string">'[for="togetherjs-person-status-follow"]'</span>).attr(<span class="string">"for"</span>, followId);
+      <span class="keyword">this</span>.detailElement.find(<span class="string">'#togetherjs-person-status-follow'</span>).attr(<span class="string">"id"</span>, followId);
+      <span class="keyword">this</span>.detailElement.find(<span class="string">".togetherjs-follow"</span>).click(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        location.href = $(<span class="keyword">this</span>).attr(<span class="string">"href"</span>);
+      });
+      <span class="keyword">this</span>.detailElement.find(<span class="string">".togetherjs-nudge"</span>).click((<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        <span class="keyword">this</span>.peer.nudge();
+      }).bind(<span class="keyword">this</span>));
+      <span class="keyword">this</span>.followCheckbox = <span class="keyword">this</span>.detailElement.find(<span class="string">"#"</span> + followId);
+      <span class="keyword">this</span>.followCheckbox.change(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        <span class="keyword">if</span> (! <span class="keyword">this</span>.checked) {
+          <span class="keyword">this</span>.peer.unfollow();
+        }</pre></div></div>
+              
+            </li>
+          
+            <li id="section-75">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-75">&#182;</a>
+                </div>
+                <p>Following doesn’t happen until the window is closed
+FIXME: should we tell the user this?</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      });
+      <span class="keyword">this</span>.maybeHideDetailWindow = <span class="keyword">this</span>.maybeHideDetailWindow.bind(<span class="keyword">this</span>);
+      session.on(<span class="string">"hide-window"</span>, <span class="keyword">this</span>.maybeHideDetailWindow);
+      ui.container.append(<span class="keyword">this</span>.detailElement);
+      <span class="keyword">this</span>.dockElement.click((<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        <span class="keyword">if</span> (<span class="keyword">this</span>.detailElement.is(<span class="string">":visible"</span>)) {
+          windowing.hide(<span class="keyword">this</span>.detailElement);
+        } <span class="keyword">else</span> {
+          windowing.show(<span class="keyword">this</span>.detailElement, {bind: <span class="keyword">this</span>.dockElement});
+          <span class="keyword">this</span>.scrollTo();
+          <span class="keyword">this</span>.cursor().element.animate({
+            opacity:<span class="number">0.3</span>
+          }).animate({
+            opacity:<span class="number">1</span>
+          }).animate({
+            opacity:<span class="number">0.3</span>
+          }).animate({
+            opacity:<span class="number">1</span>
+          });
+        }
+      }).bind(<span class="keyword">this</span>));
+      <span class="keyword">this</span>.updateFollow();
+    }),
+
+    undock: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      <span class="keyword">if</span> (! <span class="keyword">this</span>.dockElement) {
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">this</span>.dockElement.animateDockExit().promise().then((<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        <span class="keyword">this</span>.dockElement.remove();
+        <span class="keyword">this</span>.dockElement = <span class="literal">null</span>;
+        <span class="keyword">this</span>.detailElement.remove();
+        <span class="keyword">this</span>.detailElement = <span class="literal">null</span>;
+        adjustDockSize(-<span class="number">1</span>);
+      }).bind(<span class="keyword">this</span>));
+    },
+
+    scrollTo: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      <span class="keyword">if</span> (<span class="keyword">this</span>.peer.url != session.currentUrl()) {
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">var</span> pos = <span class="keyword">this</span>.peer.scrollPosition;
+      <span class="keyword">if</span> (! pos) {
+        console.warn(<span class="string">"Peer has no scroll position:"</span>, <span class="keyword">this</span>.peer);
+        <span class="keyword">return</span>;
+      }
+      pos = elementFinder.pixelForPosition(pos);
+      $(<span class="string">"html, body"</span>).easeTo(pos);
+    },
+
+    updateFollow: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      <span class="keyword">if</span> (! <span class="keyword">this</span>.peer.url) {
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">if</span> (! <span class="keyword">this</span>.detailElement) {
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">var</span> same = <span class="keyword">this</span>.detailElement.find(<span class="string">".togetherjs-same-url"</span>);
+      <span class="keyword">var</span> different = <span class="keyword">this</span>.detailElement.find(<span class="string">".togetherjs-different-url"</span>);
+      <span class="keyword">if</span> (<span class="keyword">this</span>.peer.url == session.currentUrl()) {
+        same.show();
+        different.hide();
+      } <span class="keyword">else</span> {
+        same.hide();
+        different.show();
+      }
+    },
+
+    maybeHideDetailWindow: <span class="function"><span class="keyword">function</span> <span class="params">(windows)</span> {</span>
+      <span class="keyword">if</span> (<span class="keyword">this</span>.detailElement &amp;&amp; windows[<span class="number">0</span>] &amp;&amp; windows[<span class="number">0</span>][<span class="number">0</span>] === <span class="keyword">this</span>.detailElement[<span class="number">0</span>]) {
+        <span class="keyword">if</span> (<span class="keyword">this</span>.followCheckbox[<span class="number">0</span>].checked) {
+          <span class="keyword">this</span>.peer.follow();
+        } <span class="keyword">else</span> {
+          <span class="keyword">this</span>.peer.unfollow();
+        }
+      }
+    },
+
+    dockClick: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span></pre></div></div>
+              
+            </li>
+          
+            <li id="section-76">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-76">&#182;</a>
+                </div>
+                <p>FIXME: scroll to person</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>    },
+
+    cursor: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      <span class="keyword">return</span> require(<span class="string">"cursor"</span>).getClient(<span class="keyword">this</span>.peer.id);
+    },
+
+    destroy: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span></pre></div></div>
+              
+            </li>
+          
+            <li id="section-77">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-77">&#182;</a>
+                </div>
+                <p>FIXME: should I get rid of the dockElement?</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      session.off(<span class="string">"hide-window"</span>, <span class="keyword">this</span>.maybeHideDetailWindow);
+    }
+  });
+
+  <span class="function"><span class="keyword">function</span> <span class="title">updateChatParticipantList</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> live = peers.getAllPeers(<span class="literal">true</span>);
+    <span class="keyword">if</span> (live.length) {
+      ui.displayToggle(<span class="string">"#togetherjs-chat-participants"</span>);
+      $(<span class="string">"#togetherjs-chat-participant-list"</span>).text(
+        live.map(<span class="function"><span class="keyword">function</span> <span class="params">(p)</span> {</span><span class="keyword">return</span> p.name;}).join(<span class="string">", "</span>));
+    } <span class="keyword">else</span> {
+      ui.displayToggle(<span class="string">"#togetherjs-chat-no-participants"</span>);
+    }
+  }
+
+  <span class="function"><span class="keyword">function</span> <span class="title">inviteHubUrl</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> base = TogetherJS.config.get(<span class="string">"inviteFromRoom"</span>);
+    assert(base);
+    <span class="keyword">return</span> util.makeUrlAbsolute(base, session.hubUrl());
+  }
+
+  <span class="keyword">var</span> inRefresh = <span class="literal">false</span>;
+
+  <span class="function"><span class="keyword">function</span> <span class="title">refreshInvite</span><span class="params">()</span> {</span>
+    <span class="keyword">if</span> (inRefresh) {
+      <span class="keyword">return</span>;
+    }
+    inRefresh = <span class="literal">true</span>;
+    require([<span class="string">"who"</span>], <span class="function"><span class="keyword">function</span> <span class="params">(who)</span> {</span>
+      <span class="keyword">var</span> def = who.getList(inviteHubUrl());
+      <span class="function"><span class="keyword">function</span> <span class="title">addUser</span><span class="params">(user, before)</span> {</span>
+        <span class="keyword">var</span> item = templating.sub(<span class="string">"invite-user-item"</span>, {peer: user});
+        item.attr(<span class="string">"data-clientid"</span>, user.id);
+        <span class="keyword">if</span> (before) {
+          item.insertBefore(before);
+        } <span class="keyword">else</span> {
+          $(<span class="string">"#togetherjs-invite-users"</span>).append(item);
+        }
+        item.click(<span class="keyword">function</span>() {
+          invite(user.clientId);
+        });
+      }
+      <span class="function"><span class="keyword">function</span> <span class="title">refresh</span><span class="params">(users, finished)</span> {</span>
+        <span class="keyword">var</span> sorted = [];
+        <span class="keyword">for</span> (<span class="keyword">var</span> id <span class="keyword">in</span> users) {
+          <span class="keyword">if</span> (users.hasOwnProperty(id)) {
+            sorted.push(users[id]);
+          }
+        }
+        sorted.sort(<span class="function"><span class="keyword">function</span> <span class="params">(a, b)</span> {</span>
+          <span class="keyword">return</span> a.name &lt; b.name ? -<span class="number">1</span> : <span class="number">1</span>;
+        });
+        <span class="keyword">var</span> pos = <span class="number">0</span>;
+        ui.container.find(<span class="string">"#togetherjs-invite-users .togetherjs-menu-item"</span>).each(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+          <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>);
+          <span class="keyword">if</span> (finished &amp;&amp; ! users[$<span class="keyword">this</span>.attr(<span class="string">"data-clientid"</span>)]) {
+            $<span class="keyword">this</span>.remove();
+            <span class="keyword">return</span>;
+          }
+          <span class="keyword">if</span> (pos &gt;= sorted.length) {
+            <span class="keyword">return</span>;
+          }
+          <span class="keyword">while</span> (pos &lt; sorted.length &amp;&amp; $<span class="keyword">this</span>.attr(<span class="string">"data-clientid"</span>) !== sorted[pos].id) {
+            addUser(sorted[pos], $<span class="keyword">this</span>);
+            pos++;
+          }
+          <span class="keyword">while</span> (pos &lt; sorted.length &amp;&amp; $<span class="keyword">this</span>.attr(<span class="string">"data-clientid"</span>) == sorted[pos].id) {
+            pos++;
+          }
+        });
+        <span class="keyword">for</span> (<span class="keyword">var</span> i=pos; i&lt;sorted.length; i++) {
+          addUser(sorted[pos]);
+        }
+      }
+      def.then(<span class="function"><span class="keyword">function</span> <span class="params">(users)</span> {</span>
+        refresh(users, <span class="literal">true</span>);
+        inRefresh = <span class="literal">false</span>;
+      });
+      def.progress(refresh);
+    });
+  }
+
+  session.hub.on(<span class="string">"invite"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(msg)</span> {</span>
+    <span class="keyword">if</span> (msg.forClientId &amp;&amp; msg.clientId != peers.Self.id) {
+      <span class="keyword">return</span>;
+    }
+    require([<span class="string">"who"</span>], <span class="function"><span class="keyword">function</span> <span class="params">(who)</span> {</span>
+      <span class="keyword">var</span> peer = who.ExternalPeer(msg.userInfo.clientId, msg.userInfo);
+      ui.chat.invite({peer: peer, url: msg.url, forEveryone: ! msg.forClientId});
+    });
+  });
+
+  <span class="function"><span class="keyword">function</span> <span class="title">invite</span><span class="params">(clientId)</span> {</span>
+    require([<span class="string">"who"</span>], <span class="function"><span class="keyword">function</span> <span class="params">(who)</span> {</span></pre></div></div>
+              
+            </li>
+          
+            <li id="section-78">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-78">&#182;</a>
+                </div>
+                <p>FIXME: use the return value of this to give a signal that
+the invite has been successfully sent:</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      who.invite(inviteHubUrl(), clientId).then(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        hideMenu();
+      });
+    });
+  }
+
+  ui.showUrlChangeMessage = deferForContainer(<span class="function"><span class="keyword">function</span> <span class="params">(peer, url)</span> {</span>
+    <span class="keyword">var</span> window = templating.sub(<span class="string">"url-change"</span>, {peer: peer});
+    ui.container.append(window);
+    windowing.show(window);
+  });
+
+  session.hub.on(<span class="string">"url-change-nudge"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(msg)</span> {</span>
+    <span class="keyword">if</span> (msg.to &amp;&amp; msg.to != session.clientId) {</pre></div></div>
+              
+            </li>
+          
+            <li id="section-79">
+              <div class="annotation">
+                <div class="pilwrap">
+                  <a class="pilcrow" href="#section-79">&#182;</a>
+                </div>
+                <p>Not directed to us</p>
+
+              </div>
+              
+                <div class="content"><div class='highlight'><pre>      <span class="keyword">return</span>;
+    }
+    msg.peer.urlNudge();
+  });
+
+  session.on(<span class="string">"new-element"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(el)</span> {</span>
+    <span class="keyword">if</span> (TogetherJS.config.get(<span class="string">"toolName"</span>)) {
+      ui.updateToolName(el);
+    }
+  });
+
+  <span class="keyword">var</span> setToolName = <span class="literal">false</span>;
+  ui.updateToolName = <span class="function"><span class="keyword">function</span> <span class="params">(container)</span> {</span>
+    container = container || $(document.body);
+    <span class="keyword">var</span> name = TogetherJS.config.get(<span class="string">"toolName"</span>);
+    <span class="keyword">if</span> (setToolName &amp;&amp; ! name) {
+      name = <span class="string">"TogetherJS"</span>;
+    }
+    <span class="keyword">if</span> (name) {
+      container.find(<span class="string">".togetherjs-tool-name"</span>).text(name);
+      setToolName = <span class="literal">true</span>;
+    }
+  };
+
+  TogetherJS.config.track(<span class="string">"toolName"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(name)</span> {</span>
+    ui.updateToolName(ui.container);
+  });
+
+  <span class="keyword">return</span> ui;
+
+});</pre></div></div>
+              
+            </li>
+          
+        </ul>
+      </div>
+    </section>
+
+
+
+
+
+
+        <hr>
+
+        <footer>
+
+          <section class="row" id="footer">
+            <div class="col-xs-12 col-sm-3 text-left">
+              <p><a href="https://mozillalabs.com/en-US/" target="_blank"><img src="../images/footer-mozilla-labs.png"></a></p>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+              <ul class="list-unstyled text-left">
+                <li class=""><a href=".././" class="">Overview</a></li>
+                <li><a href=".././docs/" target="_blank">Docs</a></li>
+                <li class=""><a href="https://github.com/mozilla/togetherjs" target="_blank">GitHub</a></li>
+                <li class=""><a href="mailto:togetherjs@mozilla.com" target="_blank">Contact</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+              <ul class="list-unstyled text-left">
+                <li class=""><a href="https://mozillalabs.com/en-US/togetherjs/" target="_blank">About</a></li>
+                <li><a href=".././docs/contributing.html">Contributing</a></li>
+                <li><a href="../source/">Source Code</a></li>
+                <li><a href="../faq.html">FAQ</a></li>
+                <li class=""><a href="https://twitter.com/togetherjs" target="_blank">Twitter</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+              <ul class="list-unstyled text-left">
+                <li class=""><a href="https://www.mozilla.org/privacy/websites/" target="_blank">Privacy Policy</a></li>
+                <li class=""><a href="https://www.mozilla.org/about/legal/" target="_blank">Legal Notices</a></li>
+                <li class=""><a href="https://www.mozilla.org/legal/fraud-report/" target="_blank">Report Trademark Abuses</a></li>
+                <li class="ph-credit">Thanks to Yuan Wang for the cover photo!</li>
+              </ul>
+            </div>
+          </section>
+        </footer>
+      </section>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

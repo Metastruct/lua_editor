@@ -54,7 +54,7 @@ define("ace/mode/javascript_highlight_rules",["require","exports","module","ace/
 var oop = require("../lib/oop");
 var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
 var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
-var identifierRe = "[a-zA-Z\\$_\u00a1-\uffff][a-zA-Z\\d\\$_\u00a1-\uffff]*\\b";
+var identifierRe = "[a-zA-Z\\$_\u00a1-\uffff][a-zA-Z\\d\\$_\u00a1-\uffff]*";
 
 var JavaScriptHighlightRules = function(options) {
     var keywordMapper = this.createKeywordMapper({
@@ -70,7 +70,7 @@ var JavaScriptHighlightRules = function(options) {
             "JSON|Math|"                                                               + // Other
             "this|arguments|prototype|window|document"                                 , // Pseudo
         "keyword":
-            "const|yield|import|get|set|" +
+            "const|yield|import|get|set|async|await|" +
             "break|case|catch|continue|default|delete|do|else|finally|for|function|" +
             "if|in|instanceof|new|return|switch|throw|try|typeof|let|var|while|with|debugger|" +
             "__parent__|__count__|escape|unescape|with|__proto__|" +
@@ -178,7 +178,7 @@ var JavaScriptHighlightRules = function(options) {
                 next  : "property"
             }, {
                 token : "keyword.operator",
-                regex : /--|\+\+|\.{3}|===|==|=|!=|!==|<+=?|>+=?|!|&&|\|\||\?\:|[!$%&*+\-~\/^]=?/,
+                regex : /--|\+\+|\.{3}|===|==|=|!=|!==|<+=?|>+=?|!|&&|\|\||\?:|[!$%&*+\-~\/^]=?/,
                 next  : "start"
             }, {
                 token : "punctuation.operator",
@@ -350,9 +350,8 @@ var JavaScriptHighlightRules = function(options) {
                 this.next = val == "{" ? this.nextState : "";
                 if (val == "{" && stack.length) {
                     stack.unshift("start", state);
-                    return "paren";
                 }
-                if (val == "}" && stack.length) {
+                else if (val == "}" && stack.length) {
                     stack.shift();
                     this.next = stack.shift();
                     if (this.next.indexOf("string") != -1 || this.next.indexOf("jsx") != -1)
@@ -380,7 +379,7 @@ var JavaScriptHighlightRules = function(options) {
             }]
         });
         
-        if (!options || !options.noJSX)
+        if (!options || options.jsx != false)
             JSX.call(this);
     }
     
@@ -483,7 +482,9 @@ function JSX() {
             {include : "reference"},
             {defaultToken : "string.attribute-value.xml"}
         ]
-    }];
+    },
+    jsxTag
+    ];
     this.$rules.reference = [{
         token : "constant.language.escape.reference.xml",
         regex : "(?:&#[0-9]+;)|(?:&#x[0-9a-fA-F]+;)|(?:&[a-zA-Z0-9_:\\.-]+;)"
@@ -941,7 +942,7 @@ var HtmlHighlightRules = function() {
     });
 
     this.embedTagRules(CssHighlightRules, "css-", "style");
-    this.embedTagRules(new JavaScriptHighlightRules({noJSX: true}).getRules(), "js-", "script");
+    this.embedTagRules(new JavaScriptHighlightRules({jsx: false}).getRules(), "js-", "script");
 
     if (this.constructor === HtmlHighlightRules)
         this.normalizeRules();
@@ -1031,7 +1032,7 @@ var MarkdownHighlightRules = function() {
             regex : "^([ ]{0,3}\\[)([^\\]]+)(\\]:\\s*)([^ ]+)(\\s*(?:[\"][^\"]+[\"])?(\\s*))$"
         }, { // link by reference
             token : ["text", "string", "text", "constant", "text"],
-            regex : "(\\[)(" + escaped("]") + ")(\\]\s*\\[)("+ escaped("]") + ")(\\])"
+            regex : "(\\[)(" + escaped("]") + ")(\\]\\s*\\[)("+ escaped("]") + ")(\\])"
         }, { // link by url
             token : ["text", "string", "text", "markup.underline", "string", "text"],
             regex : "(\\[)(" +                                        // [
@@ -1440,10 +1441,6 @@ var LessHighlightRules = function() {
                 regex : "\\/\\*",
                 next : "comment"
             }, {
-                token: "paren.lparen",
-                regex: "[^@]\\{",
-                push:  "ruleset"
-            }, {
                 token : "string", // single line
                 regex : '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
             }, {
@@ -1511,10 +1508,10 @@ var LessHighlightRules = function() {
                 regex : "<|>|<=|>=|=|!=|-|%|\\+|\\*"
             }, {
                 token : "paren.lparen",
-                regex : "[[(]"
+                regex : "[[({]"
             }, {
                 token : "paren.rparen",
-                regex : "[\\])]"
+                regex : "[\\])}]"
             }, {
                 token : "text",
                 regex : "\\s+"
@@ -1531,18 +1528,8 @@ var LessHighlightRules = function() {
                 token : "comment", // comment spanning whole line
                 regex : ".+"
             }
-        ],
-        "ruleset" : [
-            {
-                token : "paren.rparen",
-                regex : "\\}",
-                next:   "pop"
-            }
         ]
     };
-
-    this.$rules.ruleset = this.$rules.ruleset.concat(this.$rules.start);
-
     this.normalizeRules();
 };
 
@@ -1576,8 +1563,7 @@ define("ace/mode/coffee_highlight_rules",["require","exports","module","ace/lib/
 
         var illegal = (
             "case|const|default|function|var|void|with|enum|export|implements|" +
-            "interface|let|package|private|protected|public|static|yield|" +
-            "__hasProp|slice|bind|indexOf"
+            "interface|let|package|private|protected|public|static|yield"
         );
 
         var supportClass = (
@@ -1608,7 +1594,7 @@ define("ace/mode/coffee_highlight_rules",["require","exports","module","ace/lib/
 
         var functionRule = {
             token: ["paren.lparen", "variable.parameter", "paren.rparen", "text", "storage.type"],
-            regex: /(?:(\()((?:"[^")]*?"|'[^')]*?'|\/[^\/)]*?\/|[^()\"'\/])*?)(\))(\s*))?([\-=]>)/.source
+            regex: /(?:(\()((?:"[^")]*?"|'[^')]*?'|\/[^\/)]*?\/|[^()"'\/])*?)(\))(\s*))?([\-=]>)/.source
         };
 
         var stringEscape = /\\(?:x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)/;
@@ -1795,10 +1781,6 @@ var JadeHighlightRules = function() {
             regex: "^!!!\\s*(?:[a-zA-Z0-9-_]+)?"
         },
         {
-            token : "punctuation.section.comment",
-            regex : "^\\s*\/\/(?:\\s*[^-\\s]|\\s+\\S)(?:.*$)"
-        },
-        {
             onMatch: function(value, currentState, stack) {
                 stack.unshift(this.next, value.length - 2, currentState);
                 return "comment";
@@ -1834,7 +1816,7 @@ var JadeHighlightRules = function() {
         },
         {
             token: "meta.tag.any.jade",
-            regex: /^\s*(?!\w+\:)(?:[\w-]+|(?=\.|#)])/,
+            regex: /^\s*(?!\w+:)(?:[\w-]+|(?=\.|#)])/,
             next: "tag_single"
         },
         {
@@ -1852,8 +1834,13 @@ var JadeHighlightRules = function() {
         }
     ],
     "comment_block": [
-        {regex: /^\s*/, onMatch: function(value, currentState, stack) {
+        {regex: /^\s*(?:\/\/)?/, onMatch: function(value, currentState, stack) {
             if (value.length <= stack[1]) {
+                if (value.slice(-1) == "/") {
+                    stack[1] = value.length - 2;
+                    this.next = "";
+                    return "comment";
+                }
                 stack.shift();
                 stack.shift();
                 this.next = stack.shift();
