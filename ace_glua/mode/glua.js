@@ -171,8 +171,7 @@ var ID_REGEX2 = /:[:\.a-zA-Z_0-9]/;
 				//console.log("getCompletions prefix '"+prefix+"' pos: "+pos);
 				var completions = session.$mode.getCompletions(state, session, pos, prefix);
 				cb(null, completions);
-			}
-			 , "identifierRegexps":Array( ID_REGEX, ID_REGEX2 )
+			}, "identifierRegexps":Array( ID_REGEX, ID_REGEX2 )
 	};
 	
 }).call(Mode.prototype);
