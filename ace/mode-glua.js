@@ -393,7 +393,7 @@ var ID_REGEX2 = /:[:\.a-zA-Z_0-9]/;
 (function() {
    
     this.lineCommentStart = "--";
-    this.blockComment = {start: "--[", end: "]--"};
+    this.blockComment = {start: "--[[", end: "]]"};
     
     var indentKeywords = {
         "function": 1,
