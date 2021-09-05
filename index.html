@@ -247,7 +247,37 @@ function SetTheme(themename)
 	//OnLog("SetTheme "+themename);
 	editor.setTheme("ace/theme/" + themename);
 }
+	
+var x64hackEnable = false;
+function EnableScandicLayoutHack(enable) {
+	x64hackEnable=enable;
+}
+	
+var textarea = editor.textInput.getElement();
+function insertAtCursor(text){
+	editor.session.insert(editor.getCursorPosition(), text)
+}
 
+textarea.addEventListener('beforeinput', (e) => {
+  if (!x64hackEnable) return;
+  if (e.data=="¨" ){ insertAtCursor("~"); e.preventDefault(); }; 
+  if (e.data=="§" ){ insertAtCursor("|"); e.preventDefault(); }; 
+});
+
+
+textarea.addEventListener('keyup', (e) => {
+  if (!x64hackEnable) return;
+  if (e.altKey && e.key=="p"){ insertAtCursor("\\") };  // can't detect/type \ with scandic layout
+  if (!e.altKey && e.key=="["){ insertAtCursor("[") }; 
+  if (!e.altKey && e.key=="$"){ insertAtCursor("$") }; 
+  if (!e.altKey && e.key=="@"){ insertAtCursor("@") }; 
+  if (!e.altKey && e.key=="]"){ insertAtCursor("]") }; 
+  if (!e.altKey && e.key=="{"){ insertAtCursor("{") }; 
+  if (!e.altKey && e.key=="}"){ insertAtCursor("}") }; 
+  if (!e.altKey && e.key=="¨"){ insertAtCursor("~"); e.preventDefault(); };  // we need this more than ¨
+
+});
+	
 function SetOption(k, v)
 {
 	var opts = {};
@@ -372,6 +402,10 @@ function DoTogetherJS() {
 	head.appendChild(script);
 }
 
+
+
+
+	
 // js->lua
 function OnReady()
 {
