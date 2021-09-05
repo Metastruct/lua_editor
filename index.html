@@ -258,14 +258,14 @@ function insertAtCursor(text){
 	editor.session.insert(editor.getCursorPosition(), text)
 }
 
-textarea.addEventListener('beforeinput', (e) => {
+textarea.addEventListener('beforeinput', function(e) {
   if (!x64hackEnable) return;
   if (e.data=="¨" ){ insertAtCursor("~"); e.preventDefault(); }; 
   if (e.data=="§" ){ insertAtCursor("|"); e.preventDefault(); }; 
 });
 
 
-textarea.addEventListener('keyup', (e) => {
+textarea.addEventListener('keyup', function(e) {
   if (!x64hackEnable) return;
   if (e.altKey && e.key=="p"){ insertAtCursor("\\") };  // can't detect/type \ with scandic layout
   if (!e.altKey && e.key=="["){ insertAtCursor("[") }; 
